@@ -1,0 +1,199 @@
+---
+title: "¡Hola Quarto!"
+subtitle: "Documentos y presentaciones con Quarto desde RStudio"
+author: "[Tu nombre]"
+date: last-modified
+format:
+  revealjs:
+    theme: moon
+    logo: ../logo.jpg
+lang: es
+---
+
+![](../logo.jpg){width="200px"}
+
+## ¡Hola Quarto!
+
+Seminario **Random Beers**
+
+Documentos y presentaciones con Quarto desde RStudio
+
+::: {.fragment}
+60 minutos · 100 % práctico
+:::
+
+## Agenda
+
+**Bloque 1 · Documentos básicos (30 min)**
+
+- ¡Hola Quarto! Estructura y primer render
+- Texto: títulos, listas, tablas
+- Código R y figuras
+- Formatos: HTML y PDF
+
+**Bloque 2 · Presentaciones revealjs (30 min)**
+
+- Primera presentación
+- Fragmentos, columnas y figuras
+
+## ¿Qué es Quarto?
+
+- Motor **open source** para crear documentos, informes y presentaciones.
+- Mismo archivo de texto plano (`.qmd`) → HTML, PDF, Word, revealjs…
+- **Reproducible**: el resultado se regenera entero al cambiar los datos.
+- Integrado en **RStudio** con el botón *Render*.
+
+## Requisitos
+
+- R (>= 4.0) · RStudio (>= 2023.09) · Quarto (>= 1.4).
+- Internet (para paquetes la primera vez).
+- Comprobación rápida en la terminal:
+
+```bash
+quarto check
+```
+
+- Solo **R base** para los ejemplos: no hace falta `tidyverse`.
+
+---
+
+# Bloque 1 · Documentos
+
+## Estructura de un `.qmd`
+
+Un documento tiene tres zonas:
+
+```yaml
+---
+title: "Título"
+author: "Tu nombre"
+date: last-modified
+format: html
+toc: true
+lang: es
+---
+```
+
+- **YAML**: cabecera entre `---`.
+- **Markdown**: el texto.
+- **Chunks**: bloques de código R.
+
+## Texto en Markdown
+
+`#`, `##`, `###` → títulos y secciones
+
+`-` → listas · `1.` → listas numeradas
+
+`[texto](https://quarto.org)` → enlaces
+
+`| A | B |` → tablas
+
+**negrita** · *cursiva* · `código`
+
+## Código y figuras (R base)
+
+```{r, echo = TRUE}
+summary(iris)
+```
+
+- Chunk: ```` ```{r} ... ``` ````
+- Código en línea: `` `r mean(iris$Petal.Length)` ``
+- Figuras: `hist()`, `boxplot()`, `plot()`
+
+## Opciones de chunk
+
+```{r, echo = FALSE, fig.width = 8, fig.height = 3.5}
+barplot(table(iris$Species),
+        col = c("tomato", "gold", "steelblue"),
+        main = "Ejemplares por especie")
+```
+
+`echo = FALSE` ejecuta el código pero no lo muestra.
+
+## Formatos de salida
+
+- En el seminario usamos **HTML** (`format: html`): sin LaTeX, listo al instante.
+- **PDF** (opcional, necesita LaTeX):
+
+```yaml
+format:
+  html: default
+  pdf: default
+```
+
+```bash
+quarto install tinytex
+```
+
+- Un solo `.qmd` puede dar apuntes HTML, PDF **y** transparencias revealjs.
+
+---
+
+# Bloque 2 · Presentaciones revealjs
+
+## revealjs: diapositivas desde Quarto
+
+`format: revealjs` y cada `##` es una diapositiva.
+
+```yaml
+---
+title: "Mi presentación"
+format: revealjs
+theme: simple
+---
+```
+
+Navega con las flechas · `Esc` abre el índice.
+
+## Fragmentos
+
+El contenido aparece paso a paso:
+
+::: {.fragment}
+Primero esto…
+:::
+
+::: {.fragment}
+…y después esto.
+:::
+
+## Dos columnas
+
+::: {.columns}
+::: {.column width="50%"}
+```{r, echo = FALSE, fig.width = 5, fig.height = 4}
+boxplot(Petal.Length ~ Species,
+        data = iris,
+        col = c("tomato", "gold", "steelblue"),
+        main = "Pétalo por especie")
+```
+:::
+
+::: {.column width="50%"}
+**Texto y figura juntos**
+- La media del pétalo es `r mean(iris$Petal.Length)`.
+- El gráfico se genera dentro de la diapositiva.
+:::
+:::
+
+## Buenas prácticas en docencia
+
+- Un `.qmd` para apuntes **y** transparencias: fuente única, sin duplicar.
+- Reproducible: al cambiar los datos, todo se regenera.
+- `lang: es` para salida en español.
+- Fórmulas con `$...$` y `$$...$$`.
+
+## Materiales
+
+- Repositorio con todos los archivos: [enlace GitHub].
+- Documentos: `01-documentos/` y `02-presentaciones/`.
+- Chuleta para llevar: `guia-asistentes.pdf`.
+- Documentación: [quarto.org](https://quarto.org)
+
+## ¡Gracias!
+
+![](../logo.jpg){width="150px"}
+
+**Random Beers** · ¡Hola Quarto!
+
+¿Preguntas?

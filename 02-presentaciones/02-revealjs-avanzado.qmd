@@ -1,0 +1,62 @@
+---
+title: "Revealjs avanzado"
+author: "[Tu nombre]"
+date: last-modified
+format: revealjs
+theme: simple
+lang: es
+---
+
+## Objetivos
+
+::: {.fragment}
+1. Conocer los fragmentos.
+:::
+
+::: {.fragment}
+2. Maquetar en dos columnas.
+:::
+
+::: {.fragment}
+3. Incluir figuras generadas por R.
+:::
+
+## Dos columnas
+
+::: {.columns}
+::: {.column width="50%"}
+**Texto**
+- La media de `Petal.Length` es `r mean(iris$Petal.Length)`.
+- La desviación típica es `r sd(iris$Petal.Length)`.
+- Los datos provienen de `iris`.
+:::
+
+::: {.column width="50%"}
+```{r, echo = FALSE, fig.width = 5, fig.height = 4}
+boxplot(Petal.Length ~ Species,
+        data = iris,
+        col = c("tomato", "gold", "steelblue"),
+        main = "Pétalo por especie")
+```
+:::
+:::
+
+## Fondo de color
+
+Esta diapositiva usa un fondo personalizado con el atributo `background-color`.
+
+## Con código oculto
+
+El código que genera la figura no se muestra, solo el resultado:
+
+```{r, echo = FALSE, fig.width = 8, fig.height = 4}
+plot(cars, pch = 19, col = "steelblue",
+     main = "Distancia de frenado según velocidad")
+```
+
+## Para llevar
+
+- Un `##` por diapositiva, como un índice de títulos.
+- `{.fragment}` revela contenido paso a paso.
+- `::: {.columns}` maqueta en columnas.
+- Los chunks `{r}` dibujan las figuras dentro de la diapositiva.

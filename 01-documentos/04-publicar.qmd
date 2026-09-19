@@ -1,0 +1,52 @@
+---
+title: "Publicar en varios formatos"
+author: "[Tu nombre]"
+date: last-modified
+format:
+  html: default
+toc: true
+theme: cosmo
+lang: es
+---
+
+Este documento se renderiza en **HTML**, como el resto del seminario. Quarto
+también puede generar **PDF** con el mismo contenido añadiendo `pdf: default`
+al YAML; es una opción que veremos al final, pero no es obligatoria (requiere
+tener instalado LaTeX/TinyTeX).
+
+```{r, echo = FALSE}
+resumen <- summary(iris)
+resumen
+```
+
+Con `echo: false` el código se ejecuta pero no se muestra: solo aparece el
+resultado. Ideal para apuntes que el alumno no necesita "ensuciar" con código.
+
+## Fórmulas matemáticas
+
+Quarto entiende LaTeX para matemáticas. Para las clases de estadística esto es
+muy práctico. La media se escribe así:
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
+
+Y en línea, por ejemplo $s^2 = \frac{1}{n-1}\sum (x_i - \bar{x})^2$, también
+funciona con `$...$`.
+
+## Controlar el tamaño de las figuras
+
+La anchura de una figura se ajusta con `fig.width` (en pulgadas):
+
+```{r, fig.width = 8, fig.height = 3.5}
+barplot(table(iris$Species),
+        col = c("tomato", "gold", "steelblue"),
+        main = "Ejemplares por especie")
+```
+
+## Para llevar
+
+- Un único `.qmd` puede generar **HTML, PDF y presentaciones**.
+- El **HTML** es el formato por defecto: no requiere nada más que Quarto.
+- El **PDF** es opcional: añade `pdf: default` al YAML (necesita LaTeX).
+- Las opciones de chunk (`echo`, `fig.width`, `warning = FALSE`, etc.)
+  controlan qué se muestra y cómo.
+- Las fórmulas se escriben con `$...$` y `$$...$$`.

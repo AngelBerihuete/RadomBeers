@@ -1,0 +1,12 @@
+# RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user
+
+# Salidas generadas por Quarto (se regeneran con Render)
+*.html
+*_files/
+*.log
+*.tex

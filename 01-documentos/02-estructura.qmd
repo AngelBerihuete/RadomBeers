@@ -1,0 +1,49 @@
+---
+title: "Estructura de un documento"
+author: "[Tu nombre]"
+date: last-modified
+format: html
+toc: true
+theme: cosmo
+lang: es
+---
+
+Este documento amplía el anterior. Fíjate en el YAML: ahora añadimos `toc: true`
+para mostrar un índice automático y `theme: cosmo` para cambiar el aspecto.
+
+## Títulos y secciones
+
+Usa `#` para crear secciones. El nivel 1 (`#`) es el título principal; los
+niveles 2 y 3 (`##` y `###`) estructuran el contenido. Con `toc: true`, Quarto
+genera un índice navegable a partir de estos títulos.
+
+### Un nivel más
+
+Los documentos largos se organizan mejor en varios niveles de profundidad.
+
+## Listas
+
+- Lista sin orden: se escribe con un guion.
+- Cada guion es un elemento.
+- Útil para los contenidos de un tema.
+
+1. Lista numerada: se escribe con números.
+2. Muy útil para los pasos de un ejercicio.
+3. El orden se mantiene automáticamente.
+
+## Enlaces
+
+La documentación de Quarto está en [quarto.org](https://quarto.org). También
+puedes enlazar cualquier otra página, por ejemplo la de
+[R para estadística](https://cran.r-project.org).
+
+## Tablas
+
+Para una tabla de resultados en clase:
+
+| Variable | Media   | Desv. típica |
+|----------|---------|--------------|
+| Altura   | 170.2   | 8.4           |
+| Peso     | 72.5    | 12.1          |
+
+Las tablas se escriben directamente en el texto, sin necesidad de código.

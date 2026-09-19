@@ -1,0 +1,64 @@
+---
+title: "Código R y figuras"
+author: "[Tu nombre]"
+date: last-modified
+format: html
+toc: true
+theme: cosmo
+lang: es
+---
+
+Este documento añade lo más útil para una clase de estadística: código R
+ejecutado dentro del documento y figuras generadas automáticamente.
+
+## Un primer bloque de código
+
+Un *chunk* se abre con ```` ```{r} ```` y se cierra con ```` ``` ````. Al
+renderizar, R ejecuta el código y el resultado se inserta en el documento.
+
+```{r}
+summary(iris)
+```
+
+## Código en línea
+
+También puedes insertar resultados dentro de una frase. Por ejemplo, la media
+del largo del pétalo en `iris` es `r mean(iris$Petal.Length)` y la desviación
+típica es `r sd(iris$Petal.Length)`.
+
+Esto se escribe así: `` `r mean(iris$Petal.Length)` ``.
+
+## Histograma
+
+Un histograma de los tiempos de espera entre erupciones del géiser
+`faithful`:
+
+```{r}
+hist(faithful$waiting,
+     col = "skyblue",
+     main = "Tiempos de espera del géiser",
+     xlab = "Minutos")
+```
+
+## Diagrama de cajas
+
+Podemos comparar el largo del pétalo según la especie de `iris`:
+
+```{r}
+boxplot(Petal.Length ~ Species,
+        data = iris,
+        col = "lightgreen",
+        main = "Largo del pétalo por especie")
+```
+
+## Gráfico de dispersión
+
+La relación entre velocidad y distancia de frenado en `cars`:
+
+```{r}
+plot(cars, pch = 19, col = "steelblue",
+     main = "Distancia de frenado según velocidad")
+```
+
+Cuando los datos cambien, basta con volver a renderizar: el documento se
+regenera completo, figura incluida.

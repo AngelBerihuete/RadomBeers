@@ -1,0 +1,35 @@
+---
+title: "Mi primera presentación"
+author: "[Tu nombre]"
+date: last-modified
+format: revealjs
+theme: simple
+lang: es
+---
+
+## Objetivos de la clase
+
+- Comprender qué es un histograma.
+- Saber interpretar la forma de la distribución.
+- Aplicarlo a un conjunto de datos real.
+
+## Conceptos clave
+
+La frecuencia relativa se define como la frecuencia absoluta dividida entre el
+número total de observaciones:
+
+$$f_i = \frac{n_i}{n}$$
+
+## Datos de ejemplo
+
+Los tiempos de espera del géiser *Old Faithful*:
+
+```{r}
+head(faithful)
+```
+
+## Resumen
+
+- Un histograma agrupa los datos en intervalos.
+- La forma nos informa de la asimetría y de la variabilidad.
+- Quarto genera la diapositiva completa con un solo *Render*.

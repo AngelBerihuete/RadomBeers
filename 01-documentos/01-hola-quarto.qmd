@@ -1,0 +1,17 @@
+---
+title: "¡Hola Quarto!"
+author: "[Tu nombre]"
+date: last-modified
+format: html
+lang: es
+---
+
+¡Hola Quarto! Este es mi primer documento creado con Quarto desde RStudio.
+
+Un documento Quarto se escribe en texto plano y después se **renderiza** para
+obtener el resultado en HTML, PDF u otros formatos. Pulsa el botón
+*Render* (o `Ctrl+Shift+K`) y verás cómo se genera este documento.
+
+Todo lo que escribas en texto plano se convierte automáticamente en un
+documento formateado: *cursiva*, **negrita** y `código` son tan fáciles de
+escribir como este párrafo.
