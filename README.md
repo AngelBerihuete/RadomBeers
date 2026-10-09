@@ -85,12 +85,3 @@ git commit -m "Random Beers: materiales del seminario ¡Hola Quarto!"
 # Crear el repositorio (si gh está configurado)
 gh repo create randombeers --public --source=. --push
 ```
-
-## Autoría
-
-Materiales preparados para el seminario **Random Beers**. Puedes adaptar los
-`[corchetes]` de `outline-sesion.txt` y las portadas de los documentos a tu
-fecha, aula y datos personales
-=======
-
-# RadomBeers
