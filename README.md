@@ -1,4 +1,4 @@
-# Random Beers — ¡Hola Quarto!
+# Random Beers — ¡Hola Quarto
 
 Seminario presencial de 60 minutos para profesorado de estadística sobre cómo
 crear documentos y presentaciones con **Quarto** desde **RStudio**.
@@ -19,7 +19,7 @@ Cada asistente debe llevar un portátil con:
 1. **R** (>= 4.0) — <https://cran.r-project.org>
 2. **RStudio** (>= 2023.09) — <https://posit.co/download/rstudio-desktop>
 3. **Quarto** (>= 1.4) — <https://quarto.org/docs/get-started>
-   - En RStudio se puede comprobar en *Tools > Check for Updates* o instalarlo
+   - En RStudio se puede comprobar en _Tools > Check for Updates_ o instalarlo
      desde <https://quarto.org/docs/download>
 4. **Conexión a internet** (para descargar paquetes la primera vez).
 
@@ -55,7 +55,7 @@ presentacion/index.qmd     → presentación revealjs del seminario
 
 ## Cómo usar los materiales
 
-1. Abre el proyecto en RStudio: *File > Open Project*.
+1. Abre el proyecto en RStudio: _File > Open Project_.
 2. Abre cada `.qmd` y pulsa **Render** (atajo `Ctrl+Shift+K` en Windows/Linux,
    `Cmd+Shift+K` en macOS).
 3. Los archivos de `01-documentos/` renderizan a **HTML**. Los de
@@ -90,4 +90,7 @@ gh repo create randombeers --public --source=. --push
 
 Materiales preparados para el seminario **Random Beers**. Puedes adaptar los
 `[corchetes]` de `outline-sesion.txt` y las portadas de los documentos a tu
-fecha, aula y datos personales.
+fecha, aula y datos personales
+=======
+
+# RadomBeers
