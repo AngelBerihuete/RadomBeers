@@ -65,23 +65,3 @@ presentacion/index.qmd     → presentación revealjs del seminario
 > depender de la instalación de LaTeX en cada portátil. La salida a **PDF** es
 > opcional: se explica en `04-publicar.qmd` como ampliación y solo requiere
 > añadir `pdf: default` al YAML y tener TinyTeX (`quarto install tinytex`).
-
-## Generar los PDF de las guías
-
-Las guías (`guia-instructor.md`, `guia-asistentes.md`) también se entregan en
-PDF. Para regenerarlos:
-
-```bash
-quarto render guia-instructor.md --to pdf
-quarto render guia-asistentes.md --to pdf
-```
-
-## Publicar en GitHub
-
-```bash
-git init
-git add .
-git commit -m "Random Beers: materiales del seminario ¡Hola Quarto!"
-# Crear el repositorio (si gh está configurado)
-gh repo create randombeers --public --source=. --push
-```
