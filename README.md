@@ -1,4 +1,4 @@
-# Random Beers — ¡Hola Quarto
+# Random Beers — Hola Quarto
 
 Seminario presencial de 60 minutos para profesorado de estadística sobre cómo
 crear documentos y presentaciones con **Quarto** desde **RStudio**.
