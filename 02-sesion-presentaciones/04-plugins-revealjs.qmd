@@ -9,6 +9,8 @@ format:
     chalkboard: true
     menu: true
     zoom: true
+filters:
+  - roughnotation
 lang: es
 ---
 
@@ -51,6 +53,28 @@ presentador (pulsa **S** para abrir la ventana de notas).
 
 Para verlas, abre la vista del presentador con la tecla **S**.
 
+## Anotaciones roughnotation
+
+La extensión **roughnotation** añade subrayados y marcas "a mano alzada" que
+se animan al avanzar. Se activa con un filtro en el YAML:
+
+```yaml
+filters:
+  - roughnotation
+```
+
+Se marca el texto con la clase `.rn-fragment`:
+
+```markdown
+[Esta es la clave]{.rn-fragment rn-type=circle rn-color=red}
+```
+
+Avanza con las flechas y verás la anotación dibujarse: [Esta es la
+clave]{.rn-fragment rn-type=circle rn-color=red}
+
+Tipos disponibles: `underline`, `box`, `circle`, `highlight`,
+`strike-through`, `crossed-off`, `bracket`.
+
 ## Personalizar el tema
 
 El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
@@ -67,4 +91,5 @@ format:
 
 - `chalkboard`, `menu`, `zoom` se activan en el YAML.
 - Las **notas del orador** van en `::: {.notes}` y se ven con **S**.
+- **roughnotation** (filtro) anota texto con `.rn-fragment`.
 - El tema y los estilos se personalizan con `theme` y `css`.

@@ -36,11 +36,12 @@ Debe responder algo como `[✓] Your system should be ready for Quarto!`.
 
 ### Paquetes de R
 
-Los documentos usan **R base** (no hace falta `tidyverse`). Además, para la
-sesión 1 se usa el paquete `webexercises`:
+Los documentos usan **R base** y **tidyverse/ggplot2**. Instala los paquetes
+necesarios para el seminario:
 
 ```r
-install.packages("webexercises")
+install.packages(c("tidyverse", "palmerpenguins",
+                   "PerformanceAnalytics", "webexercises"))
 ```
 
 ## Estructura del repositorio
@@ -53,6 +54,7 @@ guia-instructor.md/.pdf          → guion cronometrado para los ponentes
 guia-asistentes.md/.pdf          → chuleta para los asistentes
 referencias.bib                  → bibliografía de ejemplo
 include/                         → ficheros css/js de webexercises
+_extensions/                     → extensión roughnotation (revealjs)
 presentacion/                    → presentaciones revealjs del seminario
    sesion1-documentos.qmd        →   sesión 1 (Ángel)
    sesion2-presentaciones.qmd    →   sesión 2 (Raúl)

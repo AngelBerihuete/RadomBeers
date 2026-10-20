@@ -9,7 +9,7 @@ lang: es
 ---
 
 Este documento amplía el anterior. Fíjate en el YAML: ahora añadimos `toc: true`
-para mostrar un índice automático y `theme: cosmo` para cambiar el aspecto.
+para mostrar un índice automático y `theme: cosmo` para cambiar el aspecto. 
 
 ## Títulos y secciones
 
@@ -37,13 +37,16 @@ La documentación de Quarto está en [quarto.org](https://quarto.org). También
 puedes enlazar cualquier otra página, por ejemplo la de
 [R para estadística](https://cran.r-project.org).
 
+Si quieres probar más temas en el encabezado `YAML`, echa un ojo a la
+[página de temas HTML](https://quarto.org/docs/output-formats/html-themes.html).
+
 ## Tablas
 
 Para una tabla de resultados en clase:
 
 | Variable | Media   | Desv. típica |
 |----------|---------|--------------|
-| Altura   | 170.2   | 8.4           |
-| Peso     | 72.5    | 12.1          |
+| Altura   | 170.2   | 8.4          |
+| Peso     | 72.5    | 12.1         |
 
 Las tablas se escriben directamente en el texto, sin necesidad de código.

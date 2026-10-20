@@ -71,12 +71,34 @@ Código en línea (inline) para meter resultados dentro de una frase:
 La media es `r mean(iris$Petal.Length)`.
 ```
 
-## 4. Figuras (R base)
+## 4. Figuras (R base y ggplot2)
+
+R base:
 
 ```r
 hist(faithful$waiting, col = "skyblue", main = "Tiempos de espera")
 boxplot(Petal.Length ~ Species, data = iris, col = "lightgreen")
 plot(cars, pch = 19, col = "steelblue")
+```
+
+ggplot2 (con `penguins`):
+
+```r
+library(tidyverse)
+library(palmerpenguins)
+
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point()
+```
+
+Matriz de correlación con `PerformanceAnalytics`:
+
+```r
+library(PerformanceAnalytics)
+penguins_num <- penguins |>
+  select(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  drop_na()
+chart.Correlation(penguins_num, histogram = TRUE)
 ```
 
 ## 5. Formatos de salida
@@ -149,6 +171,30 @@ La @fig-histograma muestra la distribución.
 ```
 
 Etiquetas: `#fig-`, `#tbl-`, `#eq-`; se citan con `@fig-`, `@tbl-`, `@eq-`.
+
+### Tablas con título
+
+```markdown
+```{r}
+#| label: tbl-resumen
+#| tbl-cap: "Media por especie"
+aggregate(Sepal.Length ~ Species, data = iris, FUN = mean) |>
+  knitr::kable()
+```
+
+La @tbl-resumen se cita por número.
+```
+
+### Emojis
+
+Activa `from: markdown+emoji` en el YAML y usa *shortcodes* (`:bulb:`,
+`:warning:`, `:bar_chart:`) o pega el carácter emoji directamente.
+
+### Notas al pie
+
+```markdown
+El coeficiente de correlación^[Entre -1 y 1] mide la relación lineal.
+```
 
 ### Citas bibliográficas
 
@@ -230,6 +276,16 @@ format:
 Nota que solo ve el presentador.
 :::
 ```
+
+- **Roughnotation** (anotaciones a mano alzada): añade `filters: - roughnotation`
+  al YAML y marca el texto:
+
+```markdown
+[Texto clave]{.rn-fragment rn-type=circle rn-color=red}
+```
+
+  Tipos: `underline`, `box`, `circle`, `highlight`, `strike-through`,
+  `crossed-off`, `bracket`.
 
 ## 8. Atajos y trucos
 

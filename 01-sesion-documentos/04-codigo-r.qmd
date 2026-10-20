@@ -8,8 +8,20 @@ theme: cosmo
 lang: es
 ---
 
-Este documento añade lo más útil para una clase de estadística: código R
-ejecutado dentro del documento y figuras generadas automáticamente.
+Este documento muestra cómo incrustar código R en un documento Quarto: chunks
+ejecutados al renderizar, código en línea y figuras. Usamos `tidyverse`
+(`ggplot2`), el conjunto de datos `penguins` y `PerformanceAnalytics`.
+
+## Cargar las librerías
+
+En un primer chunk cargamos lo que vamos a usar:
+
+```{r}
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+library(PerformanceAnalytics)
+```
 
 ## Un primer bloque de código
 
@@ -17,52 +29,63 @@ Un *chunk* se abre con ```` ```{r} ```` y se cierra con ```` ``` ````. Al
 renderizar, R ejecuta el código y el resultado se inserta en el documento.
 
 ```{r}
-summary(iris)
+glimpse(penguins)
 ```
 
 ## Código en línea
 
-También puedes insertar resultados dentro de una frase. Por ejemplo, la media
-del largo del pétalo en `iris` es `r mean(iris$Petal.Length)` y la desviación
-típica es `r sd(iris$Petal.Length)`.
+También puedes insertar resultados dentro de una frase. Por ejemplo, la masa
+corporal media de los pingüinos es `r mean(penguins$body_mass_g, na.rm = TRUE)` g
+y la desviación típica es `r sd(penguins$body_mass_g, na.rm = TRUE)` g.
 
 Esto se escribe así:
 
 ```markdown
-`r mean(iris$Petal.Length)`
+`r mean(penguins$body_mass_g, na.rm = TRUE)`
 ```
 
 ## Histograma
 
-Un histograma de los tiempos de espera entre erupciones del géiser
-`faithful`:
+Un histograma de la longitud de la aleta con `ggplot2`:
 
 ```{r}
-hist(faithful$waiting,
-     col = "skyblue",
-     main = "Tiempos de espera del géiser",
-     xlab = "Minutos")
+ggplot(penguins, aes(x = flipper_length_mm)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "white")
 ```
 
 ## Diagrama de cajas
 
-Podemos comparar el largo del pétalo según la especie de `iris`:
+Comparamos la masa corporal según la especie:
 
 ```{r}
-boxplot(Petal.Length ~ Species,
-        data = iris,
-        col = "lightgreen",
-        main = "Largo del pétalo por especie")
+ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
+  geom_boxplot()
 ```
 
 ## Gráfico de dispersión
 
-La relación entre velocidad y distancia de frenado en `cars`:
+La relación entre la longitud de la aleta y la masa corporal:
 
 ```{r}
-plot(cars, pch = 19, col = "steelblue",
-     main = "Distancia de frenado según velocidad")
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g,
+                     color = species)) +
+  geom_point()
+```
+
+## Matriz de correlación
+
+Con `PerformanceAnalytics` podemos ver la correlación entre todas las variables
+cuantitativas de los pingüinos:
+
+```{r}
+#| fig.width: 8
+#| fig.height: 8
+penguins_num <- penguins |>
+  select(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  drop_na()
+
+chart.Correlation(penguins_num, histogram = TRUE)
 ```
 
 Cuando los datos cambien, basta con volver a renderizar: el documento se
-regenera completo, figura incluida.
+regenera completo, figuras incluidas.

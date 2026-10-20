@@ -7,6 +7,7 @@ format:
     toc: true
     theme: cosmo
 bibliography: ../referencias.bib
+from: markdown+emoji
 lang: es
 ---
 
@@ -70,6 +71,18 @@ hist(faithful$waiting, col = "skyblue",
 
 :::
 
+## Emojis
+
+Puedes usar emojis en el texto. Con `from: markdown+emoji` en el YAML funcionan
+los *shortcodes*:
+
+- `:bar_chart:` → :bar_chart:
+- `:bulb:` → :bulb:
+- `:warning:` → :warning:
+
+También puedes pegar directamente el carácter: 📊 📝 ⚠️. Muy útil para hacer
+los apuntes más visuales.
+
 ## Referencias cruzadas
 
 Puedes etiquetar figuras, tablas y ecuaciones y citarlas por número. La
@@ -94,6 +107,21 @@ $$ {#eq-varianza}
 
 Podemos referirnos a la @eq-varianza en el texto.
 
+## Tablas con título
+
+Las tablas también pueden llevar título y citarse por número. En un chunk,
+usa `tbl-cap` y la etiqueta `#tbl-`:
+
+```{r}
+#| label: tbl-resumen
+#| tbl-cap: "Media del largo del sépalo por especie"
+resumen <- aggregate(Sepal.Length ~ Species, data = iris, FUN = mean)
+knitr::kable(resumen, col.names = c("Especie", "Media del sépalo"))
+```
+
+La @tbl-resumen resume el largo del sépalo por especie. Igual que con las
+figuras, el número se actualiza solo.
+
 ## Citas bibliográficas
 
 Añade `bibliography: referencias.bib` al YAML y cita con `@clave`. Por ejemplo,
@@ -102,9 +130,19 @@ se describe en [@wickham2014].
 
 La bibliografía se genera automáticamente al final del documento.
 
+## Notas al pie
+
+Las notas al pie se escriben con `^[texto de la nota]` justo después de la
+palabra a la que aclaran. Por ejemplo, el coeficiente de correlación^[Mide la
+fuerza y dirección de la relación lineal entre dos variables.] es un valor
+entre $-1$ y $1$.
+
 ## Para llevar
 
 - **Callouts** (`note`, `tip`, `warning`, `important`) resaltan avisos.
 - **Tabsets** (`{.panel-tabset}`) organizan contenido en pestañas.
+- **Emojis** con `from: markdown+emoji` y *shortcodes* (`:bulb:`) o pegando el carácter.
 - **Referencias cruzadas** (`#fig-`, `#tbl-`, `#eq-`) numeran y citan elementos.
+- **Tablas con título** (`tbl-cap` + `#tbl-`) para citar tablas por número.
 - **Citas** (`bibliography` + `@clave`) generan la bibliografía automáticamente.
+- **Notas al pie** con `^[texto]`.

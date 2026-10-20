@@ -21,22 +21,24 @@ documentos (apuntes y prácticas) y presentaciones en formato revealjs.
 Consta de dos sesiones de 90 minutos, 100 % prácticas: cada asistente
 trabajará en su portátil siguiendo ejemplos progresivos que iremos
 construyendo y ampliando en directo. Solo se necesita saber usar
-R/RStudio a nivel básico (R base es suficiente).
+R/RStudio a nivel básico; se usarán tanto R base como tidyverse/ggplot2.
 
 ---------------------------------------------------------------------
 SESIÓN 1 — GENERACIÓN DE APUNTES Y PRÁCTICAS (90 min)
 ---------------------------------------------------------------------
 FECHA:   Viernes 30 de octubre
 HORA:    12:00 - 13:30
-IMPÁRTE: Ángel Berihuete
+IMPARTE: Ángel Berihuete
 AYUDA:   Raúl Páez
 
 Contenido:
   - El formato Quarto: estructura de un .qmd y primer render.
   - Compilación y formatos de salida (HTML, PDF, Word).
-  - Cómo incrustar código R (chunks y código en línea).
+  - Cómo incrustar código R: chunks, código en línea y gráficos con
+    ggplot2 (datos penguins) y PerformanceAnalytics.
   - Plugins para documentación y docencia: callouts, tabsets,
-    referencias cruzadas, citas y webexercises.
+    referencias cruzadas, citas, tablas con título, notas al pie,
+    emojis y webexercises.
   - Ejercicio (20 min): pasar unos apuntes LaTeX beamer a Quarto.
 
 ---------------------------------------------------------------------
@@ -44,14 +46,15 @@ SESIÓN 2 — GENERACIÓN DE PRESENTACIONES (90 min)
 ---------------------------------------------------------------------
 FECHA:   Viernes 6 de noviembre
 HORA:    12:00 - 13:30
-IMPÁRTE: Raúl Páez
+IMPARTE: Raúl Páez
 AYUDA:   Ángel Berihuete
 
 Contenido:
   - Primeras diapositivas con revealjs.
   - Maquetación: fragmentos y columnas.
   - R dentro de las diapositivas (figuras y resultados).
-  - Plugins de revealjs: chalkboard, notas del orador, menú, zoom.
+  - Plugins de revealjs: chalkboard, notas del orador, menú, zoom y
+    roughnotation.
   - Ejercicio: construir una presentación de un tema de estadística.
 
 ---------------------------------------------------------------------
@@ -68,10 +71,11 @@ una terminal:
 
     quarto check
 
-Para la sesión 1 se usará el paquete de R "webexercises"; puedes
-instalarlo antes con:
+Para las sesiones se usarán algunos paquetes de R; puedes instalarlos
+antes con:
 
-    install.packages("webexercises")
+    install.packages(c("tidyverse", "palmerpenguins",
+                       "PerformanceAnalytics", "webexercises"))
 
 ---------------------------------------------------------------------
 MATERIALES

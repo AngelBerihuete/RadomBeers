@@ -15,11 +15,16 @@ comprobar.
 ## Preparación previa
 
 1. Comprueba `quarto check` en tu máquina.
-2. Instala el paquete `webexercises` (necesario para la sesión 1):
-   `install.packages("webexercises")`.
+2. Instala los paquetes de R usados en el seminario:
+
+   ```r
+   install.packages(c("tidyverse", "palmerpenguins",
+                      "PerformanceAnalytics", "webexercises"))
+   ```
+
 3. Verifica que todos los `.qmd` renderizan (consulta la lista al final).
 4. Sube los materiales a GitHub y comparte el enlace antes de la primera sesión.
-5. Recuerda a los asistentes instalar R, RStudio, Quarto y `webexercises`.
+5. Recuerda a los asistentes instalar R, RStudio, Quarto y esos paquetes.
 
 ## Materiales
 
@@ -71,17 +76,19 @@ compilación es siempre el botón **Render**.
 
 ### 40–55 min: Código R — `04-codigo-r.qmd`
 
-**Qué hacer:** insertar un chunk con el botón *Insert > R* o tecleando
-```` ```{r} ```` y `summary(iris)`.
+**Qué hacer:** abrir `04-codigo-r.qmd`, que ya carga `tidyverse`,
+`palmerpenguins` y `PerformanceAnalytics`.
 
 **Qué explicar:** el chunk se ejecuta al renderizar; el código en línea
-`` `r mean(...)` `` inserta resultados dentro de una frase; las figuras
-(`hist`, `boxplot`, `plot`) se generan automáticamente.
+inserta resultados dentro de una frase; los gráficos se generan con `ggplot2`
+sobre los datos `penguins`; y `chart.Correlation()` de `PerformanceAnalytics`
+muestra la matriz de correlación de las variables cuantitativas.
 
-**Ejercicio:** añadir `hist(faithful$waiting)` y
-`boxplot(Petal.Length ~ Species, data = iris)`.
+**Ejercicio:** añadir un gráfico de dispersión (`geom_point`) y calcular con
+código en línea la media de `body_mass_g`.
 
-**Comprobar:** que las figuras aparecen debajo de su chunk.
+**Comprobar:** que las figuras aparecen debajo de su chunk y la matriz de
+correlación se ve completa.
 
 ### 55–70 min: Plugins para docencia — `05-plugins-docencia.qmd` y `06-webexercises.qmd`
 
@@ -91,7 +98,10 @@ montados (la configuración de `webexercises` está en `_quarto.yml` e `include/
 **Qué explicar:**
 - **Callouts:** `::: {.callout-note/tip/warning/important}`.
 - **Tabsets:** `::: {.panel-tabset}` para código/resultado.
+- **Emojis:** `from: markdown+emoji` y *shortcodes* (`:bulb:`).
 - **Referencias cruzadas:** `#fig-`, `#tbl-`, `#eq-` y citarlas con `@fig-...`.
+- **Tablas con título:** `tbl-cap` + `#tbl-` para citar tablas.
+- **Notas al pie:** `^[texto]`.
 - **Citas:** `bibliography: referencias.bib` y `@clave`.
 - **webexercises:** `fitb()`, `mcq()`, `torf()`, `hide()/unhide()`.
 
@@ -167,11 +177,14 @@ inserta resultados; `echo: false` muestra solo la figura.
 
 **Qué explicar:** `chalkboard` (pizarra, tecla **B**), `menu` (menú lateral),
 `zoom` (**Alt** + clic), `slide-number`; **notas del orador** con `::: {.notes}`
-y vista del presentador (**S**); personalización con `theme` y `css`.
+y vista del presentador (**S**); **roughnotation** (`filters: - roughnotation`
+y `[texto]{.rn-fragment rn-type=circle rn-color=red}`); personalización con
+`theme` y `css`.
 
-**Ejercicio:** activar `chalkboard` y añadir una nota del orador.
+**Ejercicio:** activar `chalkboard`, añadir una nota del orador y marcar una
+palabra con roughnotation.
 
-**Comprobar:** que la pizarra y las notas funcionan.
+**Comprobar:** que la pizarra, las notas y la anotación funcionan.
 
 ### 70–90 min: Ejercicio + cierre
 

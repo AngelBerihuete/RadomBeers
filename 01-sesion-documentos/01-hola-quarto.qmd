@@ -15,3 +15,7 @@ obtener el resultado en HTML, PDF u otros formatos. Pulsa el botón
 Todo lo que escribas en texto plano se convierte automáticamente en un
 documento formateado: *cursiva*, **negrita** y `código` son tan fáciles de
 escribir como este párrafo.
+
+Todo lo que funcionaba en `rmarkdown` también funciona en Quarto. Más
+información sobre el etiquetado `Markdown` puedes encontrarlo en la
+[cheatsheet de Markdown](https://www.markdownlang.com/es/cheatsheet/).
