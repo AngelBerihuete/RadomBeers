@@ -1,0 +1,53 @@
+---
+title: "R en las diapositivas"
+author: "Raúl Páez"
+date: last-modified
+format: revealjs
+theme: simple
+lang: es
+---
+
+## El código se ejecuta al renderizar
+
+Cualquier chunk `{r}` se ejecuta y su resultado aparece en la diapositiva:
+
+```{r}
+summary(iris)
+```
+
+## Resultados en línea
+
+La media del largo del pétalo es `r mean(iris$Petal.Length)` y la desviación
+típica `r sd(iris$Petal.Length)`.
+
+Se escribe igual que en un documento, con la letra `r` seguida de una
+expresión R entre acentos graves.
+
+## Figuras dentro de la diapositiva
+
+```{r, fig.width = 8, fig.height = 4.5}
+hist(faithful$waiting, col = "skyblue",
+     main = "Tiempos de espera del géiser")
+```
+
+## Ocultar el código
+
+Con `echo: false` solo se ve la figura:
+
+```{r, echo = FALSE, fig.width = 8, fig.height = 4.5}
+boxplot(Petal.Length ~ Species, data = iris,
+        col = c("tomato", "gold", "steelblue"),
+        main = "Pétalo por especie")
+```
+
+## Mostrar una tabla
+
+```{r}
+head(iris[, 1:3])
+```
+
+## Para llevar
+
+- Los chunks `{r}` funcionan igual que en un documento HTML.
+- El código en línea inserta resultados calculados dentro de una frase.
+- `echo: false` limpia la diapositiva mostrando solo el resultado.

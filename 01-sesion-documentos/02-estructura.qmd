@@ -1,6 +1,6 @@
 ---
 title: "Estructura de un documento"
-author: "[Tu nombre]"
+author: "Ángel Berihuete"
 date: last-modified
 format: html
 toc: true

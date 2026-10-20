@@ -1,0 +1,63 @@
+---
+title: "Estadística Descriptiva"
+subtitle: "Tema 1: medidas de tendencia central y dispersión"
+author: "Ángel Berihuete"
+date: last-modified
+format:
+  html:
+    toc: true
+    theme: cosmo
+lang: es
+---
+
+Estos apuntes son la **solución del ejercicio**: pasar un documento LaTeX
+*beamer* (`apuntes-beamer.tex`) a un documento Quarto con código R incrustado.
+
+## Media y varianza
+
+La media de una muestra $x_1,\dots,x_n$ es
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i .$$
+
+La varianza muestral es
+
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i-\bar{x})^2 .$$
+
+Con Quarto no solo mostramos las fórmulas: calculamos los valores con R. Para
+los tiempos de espera del géiser `faithful`, la media es
+`r mean(faithful$waiting)` y la varianza muestral es
+`r var(faithful$waiting)`.
+
+## Histograma
+
+El histograma de los tiempos de espera se genera directamente con R:
+
+```{r}
+#| fig.cap: "Histograma de los tiempos de espera del géiser"
+#| fig.width: 6
+hist(faithful$waiting, col = "skyblue",
+     main = "Tiempos de espera del géiser",
+     xlab = "Minutos")
+```
+
+::: {.callout-tip}
+**Ventaja frente a beamer.** Si cambian los datos, la figura y los valores
+calculados se actualizan solos al renderizar.
+:::
+
+## Medidas de posición
+
+- Media
+- Mediana
+- Cuartiles
+
+```{r}
+summary(faithful$waiting)
+```
+
+## Para llevar
+
+- El texto de beamer (fórmulas, listas) pasa casi igual a Quarto.
+- Las figuras "de relleno" se sustituyen por chunks de R que las generan.
+- Los valores (media, varianza, …) se calculan con código en línea y quedan
+  siempre actualizados.

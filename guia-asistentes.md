@@ -11,7 +11,7 @@ Un archivo Quarto tiene tres zonas:
 title: "Título"
 author: "Tu nombre"
 date: last-modified
-format: html            # html, pdf o revealjs
+format: html            # html, pdf, docx o revealjs
 toc: true               # índice en documentos
 lang: es
 ---
@@ -88,12 +88,13 @@ nada más que Quarto.
 format: html
 ```
 
-El **PDF es opcional** (necesita LaTeX). Para probarlo en casa:
+Otros formatos (el **PDF** es opcional, necesita LaTeX):
 
 ```yaml
 format:
   html: default
   pdf: default
+  docx: default
 ```
 
 ```bash
@@ -102,7 +103,74 @@ quarto install tinytex   # instala LaTeX si no lo tienes (necesita internet)
 
 `Ctrl+Shift+K` (Windows/Linux) o `Cmd+Shift+K` (macOS) para **Render**.
 
-## 6. Presentaciones revealjs
+## 6. Plugins para docencia
+
+### Callouts (bloques destacados)
+
+```markdown
+::: {.callout-note}
+Nota.
+:::
+
+::: {.callout-tip}
+Consejo.
+:::
+
+::: {.callout-warning}
+Aviso.
+:::
+
+::: {.callout-important}
+Importante.
+:::
+```
+
+### Tabsets (pestañas)
+
+```markdown
+::: {.panel-tabset}
+### Código
+código…
+### Resultado
+resultado…
+:::
+```
+
+### Referencias cruzadas
+
+```markdown
+```{r}
+#| label: fig-histograma
+#| fig-cap: "Histograma"
+hist(faithful$waiting)
+```
+
+La @fig-histograma muestra la distribución.
+```
+
+Etiquetas: `#fig-`, `#tbl-`, `#eq-`; se citan con `@fig-`, `@tbl-`, `@eq-`.
+
+### Citas bibliográficas
+
+```yaml
+bibliography: referencias.bib
+```
+
+Citar con `@clave`; la bibliografía se genera sola.
+
+### webexercises (ejercicios autoevaluables)
+
+Necesita `install.packages("webexercises")` y la configuración del proyecto
+(ya incluida). En el documento, cargar el paquete en un chunk `include: false`:
+
+```markdown
+`r fitb(4)`          # rellenar un hueco
+`r mcq(c("a", answer = "b", "c"))`   # tipo test
+`r torf(TRUE)`       # verdadero/falso
+`r hide("Solución")` ... `r unhide()`  # solución oculta
+```
+
+## 7. Presentaciones revealjs
 
 Con `format: revealjs`, cada `##` es una diapositiva.
 
@@ -143,15 +211,36 @@ Contenido derecha
 
 - Un chunk `{r}` dentro de una diapositiva dibuja la figura ahí mismo.
 
-## 7. Atajos y trucos
+### Plugins de revealjs
+
+```yaml
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: true   # pizarra (tecla B)
+    menu: true         # menú lateral
+    zoom: true         # Alt + clic
+```
+
+- **Notas del orador** (vista con la tecla **S**):
+
+```markdown
+::: {.notes}
+Nota que solo ve el presentador.
+:::
+```
+
+## 8. Atajos y trucos
 
 - `Ctrl+Shift+K` / `Cmd+Shift+K`: renderizar.
 - Añadir `lang: es` para salida en español.
 - En una presentación: flechas para navegar, `Esc` para el índice.
 - Un solo `.qmd` puede ser apuntes (html/pdf) y transparencias (revealjs).
 
-## 8. Recursos
+## 9. Recursos
 
 - Documentación oficial: <https://quarto.org>
 - Cheat sheets de Quarto: <https://quarto.org/docs/cheatsheets>
 - Descargar Quarto: <https://quarto.org/docs/get-started>
+- webexercises: <https://psyteachr.github.io/webexercises>

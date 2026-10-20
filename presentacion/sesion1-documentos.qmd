@@ -1,0 +1,176 @@
+---
+title: "¡Hola Quarto!"
+subtitle: "Sesión 1 · Documentos, apuntes y prácticas"
+author: "Ángel Berihuete"
+date: last-modified
+format:
+  revealjs:
+    theme: moon
+    logo: ../logo.jpg
+lang: es
+---
+
+![](../logo.jpg){width="200px"}
+
+## ¡Hola Quarto!
+
+Seminario **Random Beers** · Sesión 1
+
+**Generación de apuntes y prácticas** con Quarto desde RStudio
+
+Viernes 30 de octubre · 12:00–13:30 · Sala de reuniones
+
+## Agenda (90 min)
+
+1. El formato Quarto y el primer render
+2. Compilación y formatos de salida
+3. Código R dentro del documento
+4. Plugins para docencia (callouts, tabsets, referencias, webexercises)
+5. **Ejercicio (20 min):** de beamer a Quarto
+
+## ¿Qué es Quarto?
+
+- Motor **open source** para documentos, informes y presentaciones.
+- Un solo `.qmd` → HTML, PDF, Word, revealjs…
+- **Reproducible**: todo se regenera al cambiar los datos.
+- Integrado en **RStudio** con el botón *Render*.
+
+## Requisitos
+
+- R (>= 4.0) · RStudio (>= 2023.09) · Quarto (>= 1.4).
+- Internet (para paquetes la primera vez).
+- Solo **R base** para los ejemplos.
+
+```bash
+quarto check
+```
+
+## Estructura de un `.qmd`
+
+Tres zonas:
+
+```yaml
+---
+title: "Título"
+author: "Tu nombre"
+date: last-modified
+format: html
+toc: true
+lang: es
+---
+```
+
+- **YAML**: cabecera entre `---`.
+- **Markdown**: el texto.
+- **Chunks**: bloques de código R.
+
+## Texto en Markdown
+
+`#`, `##`, `###` → títulos
+
+`-` → listas · `1.` → numeradas
+
+`[texto](https://quarto.org)` → enlaces
+
+`| A | B |` → tablas
+
+**negrita** · *cursiva* · `código`
+
+## Compilación y formatos
+
+```yaml
+format:
+  html: default
+  pdf: default
+  docx: default
+```
+
+- **HTML**: por defecto, sin dependencias.
+- **PDF**: opcional (LaTeX/TinyTeX).
+- **Word**: `.docx`.
+
+Compilar: botón **Render** o `Ctrl+Shift+K`.
+
+## Código R en el documento
+
+```{r}
+summary(iris)
+```
+
+- Chunk: ```` ```{r} ... ``` ````
+- Código en línea: la letra `r` seguida de una expresión R (entre acentos graves)
+- Figuras: `hist()`, `boxplot()`, `plot()`
+
+## Opciones de chunk
+
+```{r, echo = FALSE, fig.width = 8, fig.height = 3.5}
+barplot(table(iris$Species),
+        col = c("tomato", "gold", "steelblue"),
+        main = "Ejemplares por especie")
+```
+
+`echo = false` ejecuta el código pero no lo muestra.
+
+## Callouts
+
+::: {.callout-note}
+**Nota.** El conjunto `iris` viene incluido en R.
+:::
+
+::: {.callout-tip}
+**Consejo.** Guarda antes de renderizar.
+:::
+
+::: {.callout-warning}
+**Aviso.** Re-renderiza si cambian los datos.
+:::
+
+::: {.callout-important}
+**Importante.** Revisa las opciones antes de entregar.
+:::
+
+## Tabsets y referencias cruzadas
+
+- `::: {.panel-tabset}` → pestañas (código / resultado).
+- `#fig-`, `#tbl-`, `#eq-` → etiquetas para citar por número.
+- La figura se referencia como `@fig-nombre`.
+
+## Citas bibliográficas
+
+```yaml
+bibliography: referencias.bib
+```
+
+Citar con `@clave`:
+
+- [@montgomery2012] · regresión lineal
+- [@wickham2014] · datos ordenados
+
+La bibliografía se genera sola.
+
+## webexercises
+
+Ejercicios autoevaluables en el propio HTML:
+
+- `fitb()` → rellenar huecos
+- `mcq()` → tipo test
+- `torf()` → verdadero/falso
+- `hide()` / `unhide()` → solución oculta
+
+## Ejercicio (20 min)
+
+Pasar `apuntes-beamer.tex` a un documento Quarto:
+
+1. Abre `ejercicio/apuntes-beamer.tex`.
+2. Crea un `.qmd` con el mismo contenido.
+3. Sustituye las figuras "de relleno" por chunks de R.
+4. Calcula media/varianza con código en línea.
+5. Compara con `apuntes-quarto.qmd`.
+
+## ¡Gracias!
+
+![](../logo.jpg){width="150px"}
+
+**Random Beers** · Sesión 2: presentaciones revealjs · Viernes 6 de noviembre
+
+¿Preguntas?

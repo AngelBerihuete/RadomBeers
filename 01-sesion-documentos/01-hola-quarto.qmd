@@ -1,6 +1,6 @@
 ---
 title: "¡Hola Quarto!"
-author: "[Tu nombre]"
+author: "Ángel Berihuete"
 date: last-modified
 format: html
 lang: es

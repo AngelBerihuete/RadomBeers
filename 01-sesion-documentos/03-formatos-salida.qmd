@@ -1,0 +1,75 @@
+---
+title: "Compilación y formatos de salida"
+author: "Ángel Berihuete"
+date: last-modified
+format:
+  html:
+    toc: true
+    theme: cosmo
+lang: es
+---
+
+Un único archivo `.qmd` puede compilarse a **varios formatos de salida** sin
+cambiar el contenido. Basta con indicar en el YAML el formato deseado.
+
+## Formato HTML (el que usamos en el seminario)
+
+```yaml
+format: html
+```
+
+Es el formato por defecto: no requiere nada más que Quarto y se genera al
+instante. Ideal para compartir apuntes y prácticas por el campus virtual.
+
+## Otros formatos de salida
+
+- **PDF**: añade `pdf: default`. Requiere LaTeX (se instala con
+  `quarto install tinytex`). Útil para entregar/imprimir.
+- **Word** (`.docx`): añade `docx: default`. Práctico si otros profesores
+  prefieren editar en Word después.
+
+```yaml
+format:
+  html: default
+  pdf: default
+  docx: default
+```
+
+Para generar solo uno de ellos, escribe el nombre del formato a continuación
+de `quarto render`:
+
+```bash
+quarto render mi-documento.qmd --to pdf
+```
+
+## Compilar (Render)
+
+El botón **Render** (o `Ctrl+Shift+K`) compila el documento. Quarto ejecuta el
+código R, genera las figuras y compone el resultado en el formato elegido.
+
+## Fórmulas matemáticas
+
+Quarto entiende LaTeX para matemáticas. La media:
+
+$$\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
+
+Y en línea, la varianza muestral $s^2 = \frac{1}{n-1}\sum (x_i - \bar{x})^2$
+se escribe con `$...$`.
+
+## Controlar el tamaño de las figuras
+
+La anchura de una figura se ajusta con `fig.width` (en pulgadas):
+
+```{r, fig.width = 8, fig.height = 3.5}
+barplot(table(iris$Species),
+        col = c("tomato", "gold", "steelblue"),
+        main = "Ejemplares por especie")
+```
+
+## Para llevar
+
+- Un único `.qmd` puede generar **HTML, PDF y Word**.
+- **HTML** es el formato por defecto y el recomendado en el seminario.
+- El **PDF** es opcional y requiere LaTeX (`quarto install tinytex`).
+- Las opciones de chunk (`echo`, `fig.width`, `warning = FALSE`, …) controlan
+  qué se muestra y cómo.

@@ -1,0 +1,70 @@
+---
+title: "Plugins de revealjs"
+author: "Raúl Páez"
+date: last-modified
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    chalkboard: true
+    menu: true
+    zoom: true
+lang: es
+---
+
+## Complementos activados en el YAML
+
+```yaml
+format:
+  revealjs:
+    slide-number: true
+    chalkboard: true   # pizarra para dibujar
+    menu: true         # menú lateral
+    zoom: true         # Alt + clic para zoom
+```
+
+## Pizarra (chalkboard)
+
+- Pulsa la tecla **B** (o el icono de la pizarra) para dibujar sobre las
+  diapositivas.
+- Con **C** dibujas con tiza; con **Ctrl+Z** deshaces.
+- Muy útil para explicar en directo.
+
+## Menú (menu)
+
+- El icono de menú permite saltar a cualquier diapositiva.
+- Incluye un modo de pantalla completa y navegación por secciones.
+
+## Zoom (zoom)
+
+- Mantén **Alt** y haz clic en cualquier zona para ampliarla.
+- Vuelve a hacer clic para reducir.
+
+## Notas del orador
+
+Las notas se escriben con un bloque `::: {.notes}`:
+
+::: {.notes}
+Esta nota no se ve en la proyección normal. Se muestra en la vista del
+presentador (pulsa **S** para abrir la ventana de notas).
+:::
+
+Para verlas, abre la vista del presentador con la tecla **S**.
+
+## Personalizar el tema
+
+El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
+`dark`). También puedes añadir una hoja de estilos propia con `css`:
+
+```yaml
+format:
+  revealjs:
+    theme: simple
+    css: estilos.css
+```
+
+## Para llevar
+
+- `chalkboard`, `menu`, `zoom` se activan en el YAML.
+- Las **notas del orador** van en `::: {.notes}` y se ven con **S**.
+- El tema y los estilos se personalizan con `theme` y `css`.

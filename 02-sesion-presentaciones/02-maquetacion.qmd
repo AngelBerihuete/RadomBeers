@@ -1,6 +1,6 @@
 ---
-title: "Revealjs avanzado"
-author: "[Tu nombre]"
+title: "Maquetación de diapositivas"
+author: "Raúl Páez"
 date: last-modified
 format: revealjs
 theme: simple

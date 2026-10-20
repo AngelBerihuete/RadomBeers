@@ -4,52 +4,55 @@ RANDOM BEERS — SEMINARIO "¡HOLA QUARTO!"
 Documentos y presentaciones con Quarto desde RStudio
 =====================================================================
 
-LUGAR:       [Aula / sala]
-FECHA:       [dd/mm/aaaa]
-HORA:        [hh:mm - hh:mm]
-PONENTE:     [Nombre y apellidos]
-DURACIÓN:    60 minutos
-MODALIDAD:   Presencial
+LUGAR:      Sala de reuniones del Departamento de Estadística e
+            Investigación Operativa
+MODALIDAD:  Presencial
+CONTACTO:   angel.berihuete@uca.es
+INSCRIPCIÓN: [enlace al formulario de Google]
 
 ---------------------------------------------------------------------
 ¿DE QUÉ VA?
 ---------------------------------------------------------------------
-Quarto es el nuevo estándar para crear documentos, informes y
-presentaciones reproducibles directamente desde RStudio. En este
-seminario práctico de 60 minutos aprenderás a elaborar materiales
-para tus clases de estadística: documentos básicos y presentaciones
-en formato revealjs.
+Quarto es el estándar para crear documentos, informes y presentaciones
+reproducibles directamente desde RStudio. En este seminario práctico
+aprenderás a elaborar materiales para tus clases de estadística:
+documentos (apuntes y prácticas) y presentaciones en formato revealjs.
 
-El seminario es 100 % práctico: cada asistente trabajará en su
-portátil siguiendo ejemplos progresivos que iremos construyendo y
-ampliando en directo. No es necesario ningún conocimiento previo de
-Quarto; solo saber usar R/RStudio a nivel básico (R base es
-suficiente).
+Consta de dos sesiones de 90 minutos, 100 % prácticas: cada asistente
+trabajará en su portátil siguiendo ejemplos progresivos que iremos
+construyendo y ampliando en directo. Solo se necesita saber usar
+R/RStudio a nivel básico (R base es suficiente).
 
 ---------------------------------------------------------------------
-OBJETIVOS
+SESIÓN 1 — GENERACIÓN DE APUNTES Y PRÁCTICAS (90 min)
 ---------------------------------------------------------------------
-- Conocer la estructura de un documento Quarto (.qmd) y su YAML.
-- Crear documentos HTML/PDF con texto, listas, tablas, código R y
-  figuras.
-- Conocer las opciones básicas de los "chunks" (bloques de código).
-- Crear una presentación revealjs con diapositivas, fragmentos y
-  figuras generadas por R.
-- Obtener recursos para seguir aprendiendo y adaptar los ejemplos a
-  tu propia docencia.
+FECHA:   Viernes 30 de octubre
+HORA:    12:00 - 13:30
+IMPÁRTE: Ángel Berihuete
+AYUDA:   Raúl Páez
+
+Contenido:
+  - El formato Quarto: estructura de un .qmd y primer render.
+  - Compilación y formatos de salida (HTML, PDF, Word).
+  - Cómo incrustar código R (chunks y código en línea).
+  - Plugins para documentación y docencia: callouts, tabsets,
+    referencias cruzadas, citas y webexercises.
+  - Ejercicio (20 min): pasar unos apuntes LaTeX beamer a Quarto.
 
 ---------------------------------------------------------------------
-PROGRAMA (60 MIN)
+SESIÓN 2 — GENERACIÓN DE PRESENTACIONES (90 min)
 ---------------------------------------------------------------------
-  PARTE 1 — DOCUMENTOS BÁSICOS (30 min)
-    1.1  ¡Hola Quarto! Estructura de un documento y primer render.
-    1.2  Estructura del texto: títulos, listas, tablas y opciones YAML.
-    1.3  Código R y figuras en el documento.
-    1.4  Otros formatos de salida: HTML y PDF.
+FECHA:   Viernes 6 de noviembre
+HORA:    12:00 - 13:30
+IMPÁRTE: Raúl Páez
+AYUDA:   Ángel Berihuete
 
-  PARTE 2 — PRESENTACIONES REVEALJS (30 min)
-    2.1  Primera presentación: diapositivas básicas.
-    2.2  Avanzando: fragmentos, columnas y figuras desde R.
+Contenido:
+  - Primeras diapositivas con revealjs.
+  - Maquetación: fragmentos y columnas.
+  - R dentro de las diapositivas (figuras y resultados).
+  - Plugins de revealjs: chalkboard, notas del orador, menú, zoom.
+  - Ejercicio: construir una presentación de un tema de estadística.
 
 ---------------------------------------------------------------------
 REQUISITOS PARA LOS ASISTENTES
@@ -65,14 +68,19 @@ una terminal:
 
     quarto check
 
+Para la sesión 1 se usará el paquete de R "webexercises"; puedes
+instalarlo antes con:
+
+    install.packages("webexercises")
+
 ---------------------------------------------------------------------
 MATERIALES
 ---------------------------------------------------------------------
-Todos los archivos del seminario (documentos de ejemplo, presentación
-del ponente, guías) se compartirán en [enlace al repositorio / se
-entregarán al final de la sesión].
+Todos los archivos del seminario (documentos de ejemplo, presentaciones
+del ponente y guías) se compartirán en [enlace al repositorio].
 
 ---------------------------------------------------------------------
 INSCRIPCIÓN Y CONTACTO
 ---------------------------------------------------------------------
-[Correo o formulario de inscripción]
+Inscripción: [enlace al formulario de Google]
+Contacto: angel.berihuete@uca.es

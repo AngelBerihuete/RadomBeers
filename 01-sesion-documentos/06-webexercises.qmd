@@ -1,0 +1,74 @@
+---
+title: "Ejercicios interactivos con webexercises"
+author: "Ángel Berihuete"
+date: last-modified
+format:
+  html:
+    toc: true
+    theme: cosmo
+lang: es
+---
+
+La extensión **webexercises** convierte una práctica en una página
+autoevaluable: preguntas de rellenar huecos, tipo test, verdadero/falso y
+soluciones ocultas tras un botón.
+
+La configuración (archivos `webex.css` y `webex.js`) ya está en el proyecto.
+Solo hay que cargar el paquete en un chunk de configuración.
+
+```{r}
+#| include: false
+library(webexercises)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Rellenar huecos (`fitb`)
+
+- La media del largo del pétalo en `iris` es `r fitb(round(mean(iris$Petal.Length), 2))`.
+
+- La desviación típica del ancho del sépalo es `r fitb(round(sd(iris$Sepal.Width), 2))`.
+
+- ¿Cuántas observaciones tiene `iris`? `r fitb(nrow(iris))`
+
+## Tipo test (`mcq`)
+
+El histograma sirve para: `r mcq(c("calcular la media", answer = "visualizar la distribución de una variable", "ordenar los datos"))`
+
+## Verdadero o falso (`torf`)
+
+La mediana es robusta frente a valores atípicos. `r torf(TRUE)`
+
+La varianza puede ser negativa. `r torf(FALSE)`
+
+## Solución oculta (`hide` / `unhide`)
+
+Calcula la media y la mediana de `faithful$waiting` y compara cuál es mayor.
+
+`r hide("Ver solución")`
+
+La media es `r mean(faithful$waiting)` y la mediana `r median(faithful$waiting)`:
+la mediana es ligeramente mayor.
+
+`r unhide()`
+
+## Sección corregida (`.webex-check`)
+
+::: {.webex-check .webex-box}
+
+¿Cuántas especies distintas hay en `iris`?
+
+```{r}
+#| echo: false
+opts <- c(answer = "3", "2", "4")
+cat("Especies:", mcq(opts))
+```
+
+:::
+
+## Para llevar
+
+- `fitb()` → rellenar un hueco con la respuesta correcta.
+- `mcq()` → menú desplegable de opciones (una correcta).
+- `torf()` → pregunta de verdadero o falso.
+- `hide()` / `unhide()` → solución oculta tras un botón.
+- Las secciones `{.webex-check}` muestran un botón de "comprobar".

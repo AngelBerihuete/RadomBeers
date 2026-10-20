@@ -9,7 +9,6 @@
 *.html
 *_files/
 *.log
-*.tex
 
 # History files
 .Rhistory
@@ -61,3 +60,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+/.quarto/
+**/*.quarto_ipynb

@@ -1,6 +1,6 @@
 ---
 title: "Mi primera presentación"
-author: "[Tu nombre]"
+author: "Raúl Páez"
 date: last-modified
 format: revealjs
 theme: simple

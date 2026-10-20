@@ -1,0 +1,79 @@
+---
+title: "El diagrama de cajas"
+author: "Raúl Páez"
+date: last-modified
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+lang: es
+---
+
+## Objetivos
+
+::: {.fragment}
+- Entender qué representa un diagrama de cajas.
+:::
+
+::: {.fragment}
+- Identificar la mediana, los cuartiles y los valores atípicos.
+:::
+
+::: {.fragment}
+- Comparar distribuciones entre grupos.
+:::
+
+## ¿Qué muestra una caja?
+
+El diagrama de cajas resume la distribución con cinco números:
+
+::: {.fragment}
+1. Mínimo
+:::
+
+::: {.fragment}
+2. Primer cuartil ($Q_1$)
+:::
+
+::: {.fragment}
+3. Mediana
+:::
+
+::: {.fragment}
+4. Tercer cuartil ($Q_3$)
+:::
+
+::: {.fragment}
+5. Máximo
+:::
+
+## Ejemplo con `iris`
+
+```{r, echo = FALSE, fig.width = 9, fig.height = 5}
+boxplot(Petal.Length ~ Species, data = iris,
+        col = c("tomato", "gold", "steelblue"),
+        main = "Largo del pétalo por especie",
+        ylab = "Petal.Length (cm)")
+```
+
+## Lectura del gráfico
+
+- La línea gruesa central es la **mediana**.
+- Los extremos de la caja son $Q_1$ y $Q_3$.
+- Los "bigotes" llegan hasta el dato no atípico más alejado.
+
+::: {.callout-tip}
+La especie *setosa* tiene pétalos claramente más cortos y menos variables.
+:::
+
+## Comparación entre grupos
+
+- *Setosa*: pétalos cortos y homogéneos.
+- *Versicolor*: valores intermedios.
+- *Virginica*: pétalos largos y mayor variabilidad.
+
+## Para llevar
+
+- El diagrama de cajas resume la distribución en cinco números.
+- Permite **comparar** varias muestras a la vez.
+- Con Quarto, la figura se regenera al cambiar los datos.

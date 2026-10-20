@@ -1,0 +1,131 @@
+---
+title: "¡Hola Quarto!"
+subtitle: "Sesión 2 · Presentaciones con revealjs"
+author: "Raúl Páez"
+date: last-modified
+format:
+  revealjs:
+    theme: moon
+    logo: ../logo.jpg
+lang: es
+---
+
+![](../logo.jpg){width="200px"}
+
+## ¡Hola Quarto!
+
+Seminario **Random Beers** · Sesión 2
+
+**Generación de presentaciones** con revealjs
+
+Viernes 6 de noviembre · 12:00–13:30 · Sala de reuniones
+
+## Agenda (90 min)
+
+1. Primeras diapositivas
+2. Maquetación: fragmentos y columnas
+3. R dentro de las diapositivas
+4. Plugins de revealjs
+5. **Ejercicio:** una presentación de un tema de estadística
+
+## Repaso rápido
+
+- Un `.qmd` = YAML + Markdown + chunks.
+- `format: revealjs` genera diapositivas.
+- Render con `Ctrl+Shift+K`.
+
+## Primeras diapositivas
+
+```yaml
+---
+title: "Mi presentación"
+format: revealjs
+theme: simple
+---
+```
+
+Cada `##` es una diapositiva. Navega con las flechas; `Esc` abre el índice.
+
+## Fragmentos
+
+El contenido aparece paso a paso:
+
+::: {.fragment}
+Primero esto…
+:::
+
+::: {.fragment}
+…y después esto.
+:::
+
+## Dos columnas
+
+::: {.columns}
+::: {.column width="50%"}
+**Texto**
+- Media: `r mean(iris$Petal.Length)`
+- Desv. típica: `r sd(iris$Petal.Length)`
+:::
+
+::: {.column width="50%"}
+```{r, echo = FALSE, fig.width = 5, fig.height = 4}
+boxplot(Petal.Length ~ Species, data = iris,
+        col = c("tomato", "gold", "steelblue"))
+```
+:::
+:::
+
+## R en las diapositivas
+
+- Chunks `{r}` se ejecutan al renderizar.
+- Código en línea para insertar resultados calculados.
+- `echo: false` muestra solo la figura.
+
+## Plugins de revealjs
+
+```yaml
+format:
+  revealjs:
+    slide-number: true
+    chalkboard: true   # dibujar (tecla B)
+    menu: true         # menú lateral
+    zoom: true         # Alt + clic
+```
+
+## Notas del orador
+
+```markdown
+::: {.notes}
+Nota que solo ve el presentador.
+:::
+```
+
+Abre la vista del presentador con la tecla **S**.
+
+## Temas y estilos
+
+```yaml
+format:
+  revealjs:
+    theme: moon
+    css: estilos.css
+```
+
+Temas: `simple`, `moon`, `serif`, `dark`…
+
+## Ejercicio
+
+Construye una presentación de un tema de estadística:
+
+1. Crea un `.qmd` con `format: revealjs`.
+2. Añade portada, objetivos (fragmentos) y un gráfico de R.
+3. Añade notas del orador y activa `chalkboard`.
+4. Compara con `ejercicio/presentacion-tema.qmd`.
+
+## ¡Gracias!
+
+![](../logo.jpg){width="150px"}
+
+**Random Beers** · ¡Hola Quarto!
+
+¿Preguntas?

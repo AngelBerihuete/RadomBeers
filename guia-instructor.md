@@ -1,190 +1,188 @@
 # Guía del instructor — Random Beers: ¡Hola Quarto!
 
-Seminario presencial de **60 minutos**. Esta guía es un guion cronometrado:
-qué decir, qué abrir, qué pedir que hagan los asistentes y qué comprobar.
+Seminario presencial en **dos sesiones de 90 minutos**. Esta guía es un guion
+cronometrado: qué decir, qué abrir, qué pedir que hagan los asistentes y qué
+comprobar.
 
-## Preparación previa (antes del seminario)
+## Datos del seminario
+
+- **Lugar:** Sala de reuniones del Departamento de Estadística e Investigación
+  Operativa.
+- **Sesión 1:** viernes 30 de octubre, 12:00–13:30. Imparte Ángel, ayuda Raúl.
+- **Sesión 2:** viernes 6 de noviembre, 12:00–13:30. Imparte Raúl, ayuda Ángel.
+- **Contacto:** angel.berihuete@uca.es
+
+## Preparación previa
 
 1. Comprueba `quarto check` en tu máquina.
-2. Verifica que `01-documentos/`, `02-presentaciones/` y `presentacion/`
-   renderizan sin errores (consulta el final de la guía).
-3. Sube los materiales a GitHub y comparte el enlace con antelación para que
-   los asistentes puedan descargarlos (o prepáralos en un USB).
-4. Recuerda a los asistentes el requisito de traer R, RStudio y Quarto
-   instalados.
+2. Instala el paquete `webexercises` (necesario para la sesión 1):
+   `install.packages("webexercises")`.
+3. Verifica que todos los `.qmd` renderizan (consulta la lista al final).
+4. Sube los materiales a GitHub y comparte el enlace antes de la primera sesión.
+5. Recuerda a los asistentes instalar R, RStudio, Quarto y `webexercises`.
 
 ## Materiales
 
-- `presentacion/index.qmd` — tu presentación en revealjs.
-- `01-documentos/01-hola-quarto.qmd` → `04-publicar.qmd` — ejemplos del bloque 1.
-- `02-presentaciones/01-revealjs-basico.qmd` → `02-revealjs-avanzado.qmd` — bloque 2.
-- `guia-asistentes.md` — chuleta para imprimir/repartir.
+- `presentacion/sesion1-documentos.qmd` y `sesion2-presentaciones.qmd` — las
+  presentaciones del ponente.
+- `01-sesion-documentos/` — documentos progresivos de la sesión 1.
+- `02-sesion-presentaciones/` — presentaciones progresivas de la sesión 2.
+- `guia-asistentes.md` — chuleta para repartir.
 - `outline-sesion.txt` — resumen para enviar por correo.
 
 ---
 
-## Bloque 1 — Documentos básicos (30 min)
+# Sesión 1 — Generación de apuntes y prácticas (90 min)
 
-### 0–5 min: Bienvenida y verificación
+### 0–10 min: Bienvenida y verificación
 
-- Preséntate y presenta el seminario con la portada de `presentacion/index.qmd`.
-- Pide a todos que abran **RStudio** y ejecuten la comprobación:
-  - RStudio: *Tools > Terminal* y escribir `quarto check` (o probar a renderizar).
-- Confirma que todos tienen abierto el proyecto y un `.qmd` funcionando.
-- Objetivo del bloque: "al terminar, cada uno tendrá un documento HTML con
-  código, figuras y texto" (el PDF se menciona como ampliación opcional).
+- Preséntate y presenta la sesión con la portada de `sesion1-documentos.qmd`.
+- Pide a todos que abran **RStudio** y comprueben la instalación:
+  `quarto check` en la terminal.
+- Objetivo: "al terminar, cada uno tendrá un documento HTML con código, figuras
+  y ejercicios interactivos".
 
-### 5–10 min: 01-hola-quarto.qmd
+### 10–25 min: El formato Quarto — `01-hola-quarto.qmd`
 
-**Qué hacer:** abre `01-documentos/01-hola-quarto.qmd` como ejemplo terminado,
-pero pídeles que **no lo copien**: que creen un archivo nuevo en RStudio
-(*File > New File > Quarto Document*) con formato HTML.
+**Qué hacer:** muestra `01-hola-quarto.qmd` como ejemplo terminado, pero pídeles
+que **no lo copien**: que creen un archivo nuevo (*File > New File > Quarto
+Document*) con formato HTML.
 
-**Qué explicar:**
-- Un `.qmd` tiene tres zonas: **YAML** (cabecera entre `---`), **texto** en
-  Markdown y **chunks** de código R.
-- El botón **Render** (`Ctrl+Shift+K`) genera el HTML.
-- Cambiar `format: html` por `format: pdf` (ver 04) cambia el motor sin tocar
-  el contenido.
+**Qué explicar:** las tres zonas del `.qmd` (YAML, Markdown, chunks) y el botón
+**Render** (`Ctrl+Shift+K`).
 
-**Ejercicio:** escribir el título, su nombre y un párrafo "¡Hola Quarto!".
-Renderizar.
+**Ejercicio:** escribir título, autor y un párrafo "¡Hola Quarto!" y renderizar.
 
-**Comprobar:** que el HTML abre en el visor de RStudio.
+**Comprobar:** que el HTML abre en el visor.
 
-### 10–15 min: 02-estructura.qmd
+### 25–40 min: Compilación y formatos — `02-estructura.qmd` y `03-formatos-salida.qmd`
 
-**Qué hacer:** sobre su documento, añadir:
-- Un `## Título de sección`, una lista con `-` y una lista numerada.
-- Un enlace: `[Quarto](https://quarto.org)`.
-- Una tabla Markdown sencilla (por ejemplo, resumen de un tema de clase).
+**Qué hacer:** sobre su documento, añadir `##` secciones, listas, enlaces y una
+tabla; luego activar `toc: true` y `theme: cosmo` en el YAML.
 
-**Qué explicar:**
-- Los `#` crean títulos; en HTML generan una estructura navegable.
-- Añadir opciones al YAML: `toc: true`, `theme: cosmo`, `lang: es`.
-- `date: last-modified` muestra la fecha automática.
+**Qué explicar:** `format: html` es el formato por defecto (sin dependencias).
+Los formatos `pdf` y `docx` se añaden al YAML; el PDF es opcional (LaTeX). La
+compilación es siempre el botón **Render**.
 
-**Ejercicio:** activar `toc: true` y `theme: cosmo` y re-renderizar.
+**Ejercicio:** activar `toc: true`, re-renderizar, y añadir una fórmula con
+`$$...$$` (la media).
 
-**Comprobar:** que aparece el índice a la izquierda y cambia el tema.
+**Comprobar:** que aparece el índice y la fórmula.
 
-### 15–20 min: 03-codigo.qmd
+### 40–55 min: Código R — `04-codigo-r.qmd`
 
-**Qué hacer:** abrir `01-documentos/03-codigo.qmd` y, en su documento, insertar
-un chunk con el botón *Insert > R* o tecleando:
+**Qué hacer:** insertar un chunk con el botón *Insert > R* o tecleando
+```` ```{r} ```` y `summary(iris)`.
 
-    ```{r}
-    summary(iris)
-    ```
+**Qué explicar:** el chunk se ejecuta al renderizar; el código en línea
+`` `r mean(...)` `` inserta resultados dentro de una frase; las figuras
+(`hist`, `boxplot`, `plot`) se generan automáticamente.
 
-**Qué explicar:**
-- El chunk se ejecuta al renderizar; el resultado aparece en el documento.
-- Código **en línea** (inline): `` `r mean(iris$Petal.Length)` `` inserta el
-  resultado dentro de una frase.
-- Figuras: `hist(faithful$waiting, col = "skyblue")` genera una gráfica.
-
-**Ejercicio:** añadir `hist` y `boxplot(Petal.Length ~ Species, data = iris)`.
+**Ejercicio:** añadir `hist(faithful$waiting)` y
+`boxplot(Petal.Length ~ Species, data = iris)`.
 
 **Comprobar:** que las figuras aparecen debajo de su chunk.
 
-### 20–25 min: 04-publicar.qmd
+### 55–70 min: Plugins para docencia — `05-plugins-docencia.qmd` y `06-webexercises.qmd`
 
-**Qué hacer:** mostrar `01-documentos/04-publicar.qmd` (renderiza en HTML, como
-todos los documentos del seminario).
+**Qué hacer:** abrir `05-plugins-docencia.qmd` y `06-webexercises.qmd` ya
+montados (la configuración de `webexercises` está en `_quarto.yml` e `include/`).
 
 **Qué explicar:**
-- Se pueden definir varios formatos a la vez, pero en el seminario usamos
-  **HTML** para no depender de LaTeX en los portátiles de los asistentes.
-- El **PDF es una ampliación opcional**: añadir al YAML
+- **Callouts:** `::: {.callout-note/tip/warning/important}`.
+- **Tabsets:** `::: {.panel-tabset}` para código/resultado.
+- **Referencias cruzadas:** `#fig-`, `#tbl-`, `#eq-` y citarlas con `@fig-...`.
+- **Citas:** `bibliography: referencias.bib` y `@clave`.
+- **webexercises:** `fitb()`, `mcq()`, `torf()`, `hide()/unhide()`.
 
-      format:
-        html: default
-        pdf: default
+**Ejercicio:** añadir a su documento un callout de consejo y una referencia
+cruzada a su figura.
 
-  Requiere LaTeX. Si no está instalado, se instala con `quarto install tinytex`
-  (necesita internet y puede tardar unos minutos, por eso no lo hacemos en la
-  sesión).
-- Matemáticas con `$...$` o `$$...$$` (útil en estadística).
+**Comprobar:** que los callouts y los números de figura se generan bien.
 
-**Ejercicio:** añadir una ecuación (p. ej. la media `$$\bar{x}=\frac{\sum x_i}{n}$$`) y re-renderizar.
+### 70–90 min: Ejercicio (20 min) — de beamer a Quarto
 
-**Comprobar:** que el HTML se regenera con la fórmula.
+**Qué hacer:** plantear el ejercicio: pasar `ejercicio/apuntes-beamer.tex` a un
+documento Quarto. Los asistentes trabajan 20 minutos; Raúl (apoyo) resuelve
+dudas individuales.
 
-### 25–30 min: Repaso del bloque 1
+**Pasos del ejercicio:**
+1. Abrir `apuntes-beamer.tex` y leer el contenido.
+2. Crear un `.qmd` con las fórmulas, listas y el histograma.
+3. Sustituir la figura "de relleno" por un chunk `{r}` con `hist()`.
+4. Calcular media/varianza con código en línea.
+5. Comparar con la solución `apuntes-quarto.qmd`.
 
-- Repasar las opciones de chunk que ya han visto: `echo`, `fig.width`.
-- Preguntar dudas y destacar la chuleta (`guia-asistentes.md`).
-- Transición: "todo lo que hemos hecho en HTML vale para presentaciones:
-  Quarto genera diapositivas con el mismo `.qmd`".
+**Cierre:** puesta en común de dudas y recordatorio de la sesión 2.
 
 ---
 
-## Bloque 2 — Presentaciones revealjs (30 min)
+# Sesión 2 — Generación de presentaciones (90 min)
 
-### 30–35 min: 01-revealjs-basico.qmd
+### 0–10 min: Repaso y verificación
 
-**Qué hacer:** abrir `02-presentaciones/01-revealjs-basico.qmd`. Pedir que
-cambien el `format` de su último documento a `revealjs` y lo rendericen.
+- Recapitula la sesión 1 (formato Quarto, chunks, render).
+- Objetivo: "al terminar, cada uno tendrá una presentación revealjs con
+  fragmentos, figuras de R y notas del orador".
 
-**Qué explicar:**
-- Con `format: revealjs` cada encabezado `##` es una diapositiva.
-- El YAML controla el tema (`theme: serif`), tamaño de fuente y el título.
-- Navegación con las flechas del teclado o espacio; `Esc` para el índice.
+### 10–25 min: Primeras diapositivas — `01-revealjs-basico.qmd`
 
-**Ejercicio:** crear 3 diapositivas: portada, "objetivos" y una con una lista.
+**Qué hacer:** abrir `01-revealjs-basico.qmd` y pedir que cambien el `format`
+de su documento a `revealjs` y lo rendericen.
+
+**Qué explicar:** con `format: revealjs` cada `##` es una diapositiva; el YAML
+controla el tema; navegación con flechas y `Esc` para el índice.
+
+**Ejercicio:** crear portada, "objetivos" y una diapositiva con una lista.
 
 **Comprobar:** que aparece la presentación a pantalla completa.
 
-### 35–40 min: 02-revealjs-avanzado.qmd
+### 25–40 min: Maquetación — `02-maquetacion.qmd`
 
-**Qué hacer:** abrir `02-presentaciones/02-revealjs-avanzado.qmd`.
+**Qué hacer:** abrir `02-maquetacion.qmd`.
 
-**Qué explicar:**
-- **Fragmentos**: se revela el contenido poco a poco añadiendo `.fragment`:
-
-      ::: {.fragment}
-      Aparece al pulsar la flecha
-      :::
-
-- **Dos columnas**: con `::: {.columns}` y `::: {.column width="50%"}`.
-- **Figuras desde R**: un chunk `{r}` dentro de una diapositiva genera la
-  gráfica en la propia diapositiva.
+**Qué explicar:** **fragmentos** (`::: {.fragment}`) y **columnas**
+(`::: {.columns}` / `::: {.column width="50%"}`); fondos de color con
+`{background-color="#..."}`.
 
 **Ejercicio:** convertir la diapositiva de objetivos en fragmentos y añadir un
 gráfico de `iris` en una columna.
 
-**Comprobar:** que los elementos aparecen paso a paso y el gráfico se ve.
+**Comprobar:** que los elementos aparecen paso a paso.
 
-### 40–45 min: opciones de chunks y personalización
+### 40–55 min: R en las diapositivas — `03-r-diapositivas.qmd`
 
-**Qué explicar (con ejemplos rápidos):**
-- `echo: false` oculta el código y muestra solo el resultado.
-- `fig.width` / `fig.height` para tamaño de figuras.
-- `message: false` / `warning: false` para limpiar la salida.
-- En revealjs se puede fijar un **fondo de color** en una diapositiva:
+**Qué hacer:** abrir `03-r-diapositivas.qmd`.
 
-      ## Título {background-color="#f7f7f7"}
+**Qué explicar:** los chunks `{r}` se ejecutan al renderizar; el código en línea
+inserta resultados; `echo: false` muestra solo la figura.
 
-**Ejercicio:** en su presentación, ocultar el código de un chunk (`echo: false`)
-y cambiar el fondo de una diapositiva.
+**Ejercicio:** añadir una figura con `echo: false` y un resultado en línea.
 
-### 45–50 min: buenas prácticas para docencia
+**Comprobar:** que la diapositiva queda limpia (solo figura/resultado).
 
-- Un mismo `.qmd` sirve para **apuntes** (html/pdf) y para **transparencias**
-  (revealjs): la fuente es única.
-- Reproducibilidad: si cambian los datos, el documento se regenera completo.
-- Guardar figuras con `echo: false` y `fig.cap` para citarlas en los apuntes.
+### 55–70 min: Plugins de revealjs — `04-plugins-revealjs.qmd`
 
-### 50–55 min: dudas y repaso
+**Qué hacer:** abrir `04-plugins-revealjs.qmd`.
 
-- Revisar juntos la chuleta (`guia-asistentes.md`) punto por punto.
-- Resolver dudas individuales (es el momento de caminar entre los asistentes).
+**Qué explicar:** `chalkboard` (pizarra, tecla **B**), `menu` (menú lateral),
+`zoom` (**Alt** + clic), `slide-number`; **notas del orador** con `::: {.notes}`
+y vista del presentador (**S**); personalización con `theme` y `css`.
 
-### 55–60 min: cierre
+**Ejercicio:** activar `chalkboard` y añadir una nota del orador.
 
-- Resumen: qué es Quarto, cómo renderizar, formatos html/pdf/revealjs.
-- Recordar dónde están los materiales (repositorio GitHub).
-- Pedir evaluación breve (papel o formulario) y agradecer la asistencia.
+**Comprobar:** que la pizarra y las notas funcionan.
+
+### 70–90 min: Ejercicio + cierre
+
+**Ejercicio:** construir una presentación de un tema de estadística:
+1. Crear un `.qmd` con `format: revealjs`.
+2. Añadir portada, objetivos (fragmentos) y un gráfico de R.
+3. Añadir notas del orador y activar `chalkboard`.
+4. Comparar con `ejercicio/presentacion-tema.qmd`.
+
+**Cierre:** puesta en común, recordar la chuleta (`guia-asistentes.md`) y los
+materiales del repositorio.
 
 ---
 
@@ -192,20 +190,20 @@ y cambiar el fondo de una diapositiva.
 
 | Problema | Solución |
 | --- | --- |
-| `quarto` no se reconoce en la terminal | Reinstalar Quarto y reiniciar RStudio/terminal. |
-| El HTML no aparece tras Render | Mirar la pestaña *Output* de RStudio; suele ser un error de YAML (comillas sin cerrar). |
-| El PDF da error de LaTeX | Es una ampliación opcional; instalar TinyTeX con `quarto install tinytex` (necesita internet). |
-| `hist()` no sale en la diapositiva | Asegurarse de que el chunk `{r}` está **dentro** de la diapositiva (`##`). |
-| Los fragmentos no aparecen | Revisar la sintaxis `::: {.fragment}` y que está bien indentada (dos espacios). |
+| `quarto` no se reconoce | Reinstalar Quarto y reiniciar RStudio/terminal. |
+| El HTML no aparece tras Render | Mirar *Output*; suele ser un error de YAML (comillas sin cerrar). |
+| `webexercises` no funciona | Comprobar `install.packages("webexercises")` y re-renderizar. |
+| El PDF da error de LaTeX | Es opcional; `quarto install tinytex` (necesita internet). |
+| Los fragmentos no aparecen | Revisar `::: {.fragment}` con indentación de dos espacios. |
+| La pizarra no se abre | Verificar `chalkboard: true` en el YAML y re-renderizar. |
 | El idioma de la salida está en inglés | Añadir `lang: es` al YAML. |
 
-## Lista de verificación final (probar antes del seminario)
-
-Todos los documentos renderizan a **HTML**, así que solo se necesita Quarto
-instalado (sin LaTeX):
+## Lista de verificación final (antes de cada sesión)
 
 ```bash
-for f in 01-documentos/*.qmd 02-presentaciones/*.qmd presentacion/index.qmd; do
+for f in 01-sesion-documentos/*.qmd 01-sesion-documentos/ejercicio/*.qmd \
+         02-sesion-presentaciones/*.qmd 02-sesion-presentaciones/ejercicio/*.qmd \
+         presentacion/*.qmd; do
   quarto render "$f"
 done
 ```

@@ -1,6 +1,6 @@
 ---
 title: "Código R y figuras"
-author: "[Tu nombre]"
+author: "Ángel Berihuete"
 date: last-modified
 format: html
 toc: true
@@ -26,7 +26,11 @@ También puedes insertar resultados dentro de una frase. Por ejemplo, la media
 del largo del pétalo en `iris` es `r mean(iris$Petal.Length)` y la desviación
 típica es `r sd(iris$Petal.Length)`.
 
-Esto se escribe así: `` `r mean(iris$Petal.Length)` ``.
+Esto se escribe así:
+
+```markdown
+`r mean(iris$Petal.Length)`
+```
 
 ## Histograma
 
