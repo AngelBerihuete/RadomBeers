@@ -7,7 +7,7 @@ Documentos y presentaciones con Quarto desde RStudio
 LUGAR:      Sala de reuniones del Departamento de Estadística e
             Investigación Operativa
 MODALIDAD:  Presencial
-CONTACTO:   angel.berihuete@uca.es
+CONTACTO:   angel.berihuete @uca.es
 INSCRIPCIÓN: https://forms.gle/gXvULrrQGKYCvwT29
 
 ---------------------------------------------------------------------
@@ -87,4 +87,4 @@ del ponente y guías) se compartirán en GitHub.
 INSCRIPCIÓN Y CONTACTO
 ---------------------------------------------------------------------
 Inscripción: https://forms.gle/gXvULrrQGKYCvwT29
-Contacto: angel.berihuete@uca.es
+Contacto: angel.berihuete @uca.es
