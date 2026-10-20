@@ -8,7 +8,7 @@ LUGAR:      Sala de reuniones del Departamento de Estadística e
             Investigación Operativa
 MODALIDAD:  Presencial
 CONTACTO:   angel.berihuete@uca.es
-INSCRIPCIÓN: [enlace al formulario de Google]
+INSCRIPCIÓN: https://forms.gle/gXvULrrQGKYCvwT29
 
 ---------------------------------------------------------------------
 ¿DE QUÉ VA?
@@ -81,10 +81,10 @@ antes con:
 MATERIALES
 ---------------------------------------------------------------------
 Todos los archivos del seminario (documentos de ejemplo, presentaciones
-del ponente y guías) se compartirán en [enlace al repositorio].
+del ponente y guías) se compartirán en GitHub.
 
 ---------------------------------------------------------------------
 INSCRIPCIÓN Y CONTACTO
 ---------------------------------------------------------------------
-Inscripción: [enlace al formulario de Google]
+Inscripción: https://forms.gle/gXvULrrQGKYCvwT29
 Contacto: angel.berihuete@uca.es
