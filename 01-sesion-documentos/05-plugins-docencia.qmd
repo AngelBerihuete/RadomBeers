@@ -1,19 +1,18 @@
 ---
-title: "Extras para documentación y docencia"
+title: "Plugins para apuntes de clase"
 author: "Ángel Berihuete"
 date: last-modified
 format:
   html:
     toc: true
     theme: cosmo
-bibliography: ../referencias.bib
 from: markdown+emoji
 lang: es
 ---
 
-Quarto incluye recursos pensados para escribir apuntes y prácticas: bloques
-destacados (*callouts*), pestañas (*tabsets*), referencias cruzadas y citas
-bibliográficas.
+Quarto incluye recursos pensados para escribir apuntes y prácticas más claros y
+visuales: bloques destacados, pestañas, definiciones y teoremas numerados,
+anotaciones sobre el código y diagramas.
 
 ## Bloques destacados (callouts)
 
@@ -45,6 +44,19 @@ regeneren.
 ::: {.callout-important}
 **Importante.** Revisa las opciones de chunk (`echo`, `fig.width`, …) antes de
 entregar la práctica.
+:::
+
+## Callouts colapsables
+
+Con `collapse="true"` el contenido queda oculto hasta que se hace clic. Ideal
+para pistas y soluciones en una práctica:
+
+::: {.callout-tip collapse="true"}
+
+## Pista
+
+La mediana es robusta frente a valores atípicos.
+
 :::
 
 ## Pestañas (tabsets)
@@ -83,66 +95,78 @@ los *shortcodes*:
 También puedes pegar directamente el carácter: 📊 📝 ⚠️. Muy útil para hacer
 los apuntes más visuales.
 
-## Referencias cruzadas
+## Teoremas y definiciones
 
-Puedes etiquetar figuras, tablas y ecuaciones y citarlas por número. La
-etiqueta se define con `#fig-`, `#tbl-` o `#eq-`.
+Quarto numera definiciones, teoremas, ejemplos y demostraciones, y permite
+referenciarlos. Muy útil para apuntes de estadística:
+
+::: {#def-media}
+
+## Media
+
+La media de una muestra $x_1,\dots,x_n$ es
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i .$$
+
+:::
+
+::: {#thm-normal}
+
+## Teorema central del límite
+
+Si $X_1,\dots,X_n$ son independientes e idénticamente distribuidas, la media
+muestral tiende a una distribución normal cuando $n$ crece.
+
+:::
+
+::: {.proof}
+
+La demostración se basa en la función característica y queda fuera de este
+seminario.
+
+:::
+
+Podemos referirnos a la @def-media o al @thm-normal por su número.
+
+## Anotar código
+
+Las anotaciones de código explican línea a línea qué hace un chunk, como si
+fueran notas al pie. Se marcan con `# <1>`, `# <2>`, … y se describen en una
+lista numerada justo debajo:
 
 ```{r}
-#| label: fig-histograma
-#| fig-cap: "Histograma de los tiempos de espera del géiser"
-#| fig.width: 6
-hist(faithful$waiting, col = "skyblue",
-     main = "Tiempos de espera del géiser")
+x <- c(2, 4, 6, 8, 10)   # <1>
+mean(x)                  # <2>
+median(x)                # <3>
 ```
 
-La @fig-histograma muestra la distribución de los tiempos de espera. El
-número se actualiza automáticamente si insertas figuras antes.
+1. Crea un vector con los datos.
+2. Calcula la media.
+3. Calcula la mediana.
 
-Una ecuación etiquetada:
+Con `code-annotations: hover` (o `select`) en el YAML, la explicación aparece al
+pasar el ratón (o al hacer clic) sobre el número.
 
-$$
-s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (x_i - \bar{x})^2
-$$ {#eq-varianza}
+## Diagramas (Mermaid)
 
-Podemos referirnos a la @eq-varianza en el texto.
+Los diagramas de Mermaid se escriben en un chunk `{mermaid}` y sirven para
+esquemas y diagramas de flujo:
 
-## Tablas con título
-
-Las tablas también pueden llevar título y citarse por número. En un chunk,
-usa `tbl-cap` y la etiqueta `#tbl-`:
-
-```{r}
-#| label: tbl-resumen
-#| tbl-cap: "Media del largo del sépalo por especie"
-resumen <- aggregate(Sepal.Length ~ Species, data = iris, FUN = mean)
-knitr::kable(resumen, col.names = c("Especie", "Media del sépalo"))
+```{mermaid}
+flowchart LR
+  A[Datos] --> B[Análisis]
+  B --> C[Figuras]
+  B --> D[Tablas]
+  C --> E[Documento]
+  D --> E
 ```
-
-La @tbl-resumen resume el largo del sépalo por especie. Igual que con las
-figuras, el número se actualiza solo.
-
-## Citas bibliográficas
-
-Añade `bibliography: referencias.bib` al YAML y cita con `@clave`. Por ejemplo,
-[@montgomery2012] trata la regresión lineal, y el concepto de datos ordenados
-se describe en [@wickham2014].
-
-La bibliografía se genera automáticamente al final del documento.
-
-## Notas al pie
-
-Las notas al pie se escriben con `^[texto de la nota]` justo después de la
-palabra a la que aclaran. Por ejemplo, el coeficiente de correlación^[Mide la
-fuerza y dirección de la relación lineal entre dos variables.] es un valor
-entre $-1$ y $1$.
 
 ## Para llevar
 
 - **Callouts** (`note`, `tip`, `warning`, `important`) resaltan avisos.
+- **Callouts colapsables** (`collapse="true"`) ocultan pistas y soluciones.
 - **Tabsets** (`{.panel-tabset}`) organizan contenido en pestañas.
-- **Emojis** con `from: markdown+emoji` y *shortcodes* (`:bulb:`) o pegando el carácter.
-- **Referencias cruzadas** (`#fig-`, `#tbl-`, `#eq-`) numeran y citan elementos.
-- **Tablas con título** (`tbl-cap` + `#tbl-`) para citar tablas por número.
-- **Citas** (`bibliography` + `@clave`) generan la bibliografía automáticamente.
-- **Notas al pie** con `^[texto]`.
+- **Emojis** con `from: markdown+emoji` y *shortcodes* (`:bulb:`).
+- **Teoremas y definiciones** (`#def-`, `#thm-`, `::: {.proof}`) se numeran y citan.
+- **Code annotation** (`# <1>` + lista) explica el código línea a línea.
+- **Diagramas Mermaid** (`{mermaid}`) crean esquemas y flujos.

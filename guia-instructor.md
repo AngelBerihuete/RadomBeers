@@ -74,41 +74,44 @@ compilación es siempre el botón **Render**.
 
 **Comprobar:** que aparece el índice y la fórmula.
 
-### 40–55 min: Código R — `04-codigo-r.qmd`
+### 40–55 min: Elementos importantes — `04-elementos-importantes.qmd`
 
-**Qué hacer:** abrir `04-codigo-r.qmd`, que ya carga `tidyverse`,
+**Qué hacer:** abrir `04-elementos-importantes.qmd`, que ya carga `tidyverse`,
 `palmerpenguins` y `PerformanceAnalytics`.
 
 **Qué explicar:** el chunk se ejecuta al renderizar; el código en línea
 inserta resultados dentro de una frase; los gráficos se generan con `ggplot2`
 sobre los datos `penguins`; y `chart.Correlation()` de `PerformanceAnalytics`
-muestra la matriz de correlación de las variables cuantitativas.
+muestra la matriz de correlación. Además se ven las **referencias cruzadas** a
+figuras (`fig-cap` + `#fig-`), imágenes, tablas (`#tbl-`), ecuaciones (`#eq-`) y
+secciones (`#sec-` + `number-sections: true`), junto con citas bibliográficas y
+notas al pie.
 
-**Ejercicio:** añadir un gráfico de dispersión (`geom_point`) y calcular con
-código en línea la media de `body_mass_g`.
+**Ejercicio:** añadir un gráfico de dispersión (`geom_point`), calcular con
+código en línea la media de `body_mass_g` y etiquetar una ecuación para citarla.
 
-**Comprobar:** que las figuras aparecen debajo de su chunk y la matriz de
-correlación se ve completa.
+**Comprobar:** que las figuras aparecen debajo de su chunk, la matriz de
+correlación se ve completa y los números de figura/tabla/ecuación se generan.
 
-### 55–70 min: Plugins para docencia — `05-plugins-docencia.qmd` y `06-webexercises.qmd`
+### 55–70 min: Plugins para apuntes — `05-plugins-docencia.qmd` y `06-webexercises.qmd`
 
 **Qué hacer:** abrir `05-plugins-docencia.qmd` y `06-webexercises.qmd` ya
 montados (la configuración de `webexercises` está en `_quarto.yml` e `include/`).
 
 **Qué explicar:**
 - **Callouts:** `::: {.callout-note/tip/warning/important}`.
+- **Callouts colapsables:** `collapse="true"` para ocultar pistas/soluciones.
 - **Tabsets:** `::: {.panel-tabset}` para código/resultado.
 - **Emojis:** `from: markdown+emoji` y *shortcodes* (`:bulb:`).
-- **Referencias cruzadas:** `#fig-`, `#tbl-`, `#eq-` y citarlas con `@fig-...`.
-- **Tablas con título:** `tbl-cap` + `#tbl-` para citar tablas.
-- **Notas al pie:** `^[texto]`.
-- **Citas:** `bibliography: referencias.bib` y `@clave`.
+- **Teoremas/definiciones:** `#def-`, `#thm-`, `::: {.proof}`.
+- **Code annotation:** `# <1>` + lista numerada para explicar el código.
+- **Diagramas Mermaid:** chunk `{mermaid}`.
 - **webexercises:** `fitb()`, `mcq()`, `torf()`, `hide()/unhide()`.
 
-**Ejercicio:** añadir a su documento un callout de consejo y una referencia
-cruzada a su figura.
+**Ejercicio:** añadir a su documento un callout de consejo y una definición
+numerada.
 
-**Comprobar:** que los callouts y los números de figura se generan bien.
+**Comprobar:** que los callouts y las definiciones/teoremas se numeran bien.
 
 ### 70–90 min: Ejercicio (20 min) — de beamer a Quarto
 

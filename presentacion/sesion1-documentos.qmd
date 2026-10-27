@@ -24,8 +24,8 @@ Viernes 30 de octubre · 12:00–13:30 · Sala de reuniones
 
 1. El formato Quarto y el primer render
 2. Compilación y formatos de salida
-3. Código R dentro del documento
-4. Plugins para docencia (callouts, tabsets, referencias, webexercises)
+3. Elementos importantes: código, figuras y referencias
+4. Plugins para apuntes (callouts, teoremas, anotaciones, webexercises)
 5. **Ejercicio (20 min):** de beamer a Quarto
 
 ## ¿Qué es Quarto?
@@ -91,7 +91,7 @@ format:
 
 Compilar: botón **Render** o `Ctrl+Shift+K`.
 
-## Código R en el documento
+## Elementos importantes
 
 ```{r}
 summary(iris)
@@ -99,7 +99,8 @@ summary(iris)
 
 - Chunk: ```` ```{r} ... ``` ````
 - Código en línea: la letra `r` seguida de una expresión R (entre acentos graves)
-- Figuras: `hist()`, `boxplot()`, `plot()`
+- Figuras con `ggplot2` (datos `penguins`) y `chart.Correlation()`
+- Imágenes, tablas y ecuaciones con referencias cruzadas (`@fig-`, `@tbl-`, `@eq-`, `@sec-`)
 
 ## Opciones de chunk
 
@@ -129,11 +130,12 @@ barplot(table(iris$Species),
 **Importante.** Revisa las opciones antes de entregar.
 :::
 
-## Tabsets y referencias cruzadas
+## Tabsets y teoremas
 
 - `::: {.panel-tabset}` → pestañas (código / resultado).
-- `#fig-`, `#tbl-`, `#eq-` → etiquetas para citar por número.
-- La figura se referencia como `@fig-nombre`.
+- `#def-`, `#thm-`, `::: {.proof}` → definiciones y teoremas numerados.
+- `# <1>` + lista → anotaciones sobre el código.
+- `{mermaid}` → diagramas de flujo.
 
 ## Citas bibliográficas
 

@@ -1,5 +1,5 @@
 ---
-title: "Código R y figuras"
+title: "Elementos importantes"
 author: "Ángel Berihuete"
 date: last-modified
 format: html
@@ -10,12 +10,14 @@ bibliography: ../referencias.bib
 lang: es
 ---
 
-Este documento muestra cómo incrustar código R en un documento Quarto: chunks
-ejecutados al renderizar, código en línea y figuras. Usamos `tidyverse`
-(`ggplot2`), el conjunto de datos `penguins` y `PerformanceAnalytics`.
+Este documento reúne los elementos más útiles para un documento Quarto: código
+R (chunks y código en línea), figuras, imágenes, tablas, ecuaciones y
+bibliografía. Usamos `tidyverse` (`ggplot2`), el conjunto de datos `penguins` y
+`PerformanceAnalytics`.
 
-También verás cómo etiquetar secciones, imágenes y tablas para referenciarlas
-después (por ejemplo, la @sec-histograma o la @fig-logo).
+También verás cómo etiquetar secciones, figuras, tablas y ecuaciones para
+referenciarlas después (por ejemplo, la @sec-figuras, la @fig-histograma o la
+@tbl-resumen).
 
 ## Cargar las librerías {#sec-librerias}
 
@@ -49,14 +51,19 @@ Esto se escribe así:
 `r mean(penguins$body_mass_g, na.rm = TRUE)`
 ```
 
-## Histograma {#sec-histograma}
+## Figuras hechas con R {#sec-figuras}
 
-Un histograma de la longitud de la aleta con `ggplot2`:
+Un histograma de la longitud de la aleta con `ggplot2`. Para poder citarlo por
+número, añade `fig-cap` y una etiqueta `label: fig-...`:
 
 ```{r}
+#| label: fig-histograma
+#| fig-cap: "Histograma de la longitud de la aleta"
 ggplot(penguins, aes(x = flipper_length_mm)) +
   geom_histogram(binwidth = 5, fill = "skyblue", color = "white")
 ```
+
+La @fig-histograma muestra la distribución de la longitud de la aleta.
 
 ## Diagrama de cajas {#sec-boxplot}
 
@@ -117,8 +124,31 @@ penguins |>
 La @tbl-resumen resume el número de ejemplares por especie. Junto con la
 @fig-logo, ilustran cómo referenciar imágenes y tablas en el texto.
 
+## Ecuaciones {#sec-ecuaciones}
+
+Las ecuaciones también se etiquetan y citan por número. La varianza muestral es
+
+$$
+s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (x_i - \bar{x})^2
+$$ {#eq-varianza}
+
+Podemos referirnos a la @eq-varianza en el texto.
+
+## Citas bibliográficas {#sec-citas}
+
+Añade `bibliography: referencias.bib` al YAML y cita con `@clave`. Por ejemplo,
+[@montgomery2012] trata la regresión lineal, y el concepto de datos ordenados
+se describe en [@wickham2014]. Para una introducción a la estadística con R,
+puedes consultar @arriaza2008estadistica.
+
+La bibliografía se genera automáticamente al final del documento.
+
+## Notas al pie {#sec-notas}
+
+Las notas al pie se escriben con `^[texto de la nota]` justo después de la
+palabra a la que aclaran. Por ejemplo, el coeficiente de correlación^[Mide la
+fuerza y dirección de la relación lineal entre dos variables.] es un valor
+entre $-1$ y $1$.
+
 Cuando los datos cambien, basta con volver a renderizar: el documento se
 regenera completo, figuras incluidas.
-
-Para una introducción más extensa a la estadística con R, puedes consultar
-@arriaza2008estadistica.
