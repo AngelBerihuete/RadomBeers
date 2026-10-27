@@ -218,7 +218,7 @@ El coeficiente de correlación^[Entre -1 y 1] mide la relación lineal.
 ### Citas bibliográficas
 
 ```yaml
-bibliography: references.bib
+bibliography: referencias.bib
 ```
 
 Citar con `@clave`; la bibliografía se genera sola.
