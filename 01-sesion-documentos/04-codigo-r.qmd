@@ -5,6 +5,8 @@ date: last-modified
 format: html
 toc: true
 theme: cosmo
+number-sections: true
+bibliography: ../references.bib
 lang: es
 ---
 
@@ -12,7 +14,10 @@ Este documento muestra cómo incrustar código R en un documento Quarto: chunks
 ejecutados al renderizar, código en línea y figuras. Usamos `tidyverse`
 (`ggplot2`), el conjunto de datos `penguins` y `PerformanceAnalytics`.
 
-## Cargar las librerías
+También verás cómo etiquetar secciones, imágenes y tablas para referenciarlas
+después (por ejemplo, la @sec-histograma o la @fig-logo).
+
+## Cargar las librerías {#sec-librerias}
 
 En un primer chunk cargamos lo que vamos a usar:
 
@@ -23,7 +28,7 @@ library(palmerpenguins)
 library(PerformanceAnalytics)
 ```
 
-## Un primer bloque de código
+## Un primer bloque de código {#sec-primer-chunk}
 
 Un *chunk* se abre con ```` ```{r} ```` y se cierra con ```` ``` ````. Al
 renderizar, R ejecuta el código y el resultado se inserta en el documento.
@@ -32,7 +37,7 @@ renderizar, R ejecuta el código y el resultado se inserta en el documento.
 glimpse(penguins)
 ```
 
-## Código en línea
+## Código en línea {#sec-codigo-linea}
 
 También puedes insertar resultados dentro de una frase. Por ejemplo, la masa
 corporal media de los pingüinos es `r mean(penguins$body_mass_g, na.rm = TRUE)` g
@@ -44,7 +49,7 @@ Esto se escribe así:
 `r mean(penguins$body_mass_g, na.rm = TRUE)`
 ```
 
-## Histograma
+## Histograma {#sec-histograma}
 
 Un histograma de la longitud de la aleta con `ggplot2`:
 
@@ -53,7 +58,7 @@ ggplot(penguins, aes(x = flipper_length_mm)) +
   geom_histogram(binwidth = 5, fill = "skyblue", color = "white")
 ```
 
-## Diagrama de cajas
+## Diagrama de cajas {#sec-boxplot}
 
 Comparamos la masa corporal según la especie:
 
@@ -62,7 +67,7 @@ ggplot(penguins, aes(x = species, y = body_mass_g, fill = species)) +
   geom_boxplot()
 ```
 
-## Gráfico de dispersión
+## Gráfico de dispersión {#sec-dispersion}
 
 La relación entre la longitud de la aleta y la masa corporal:
 
@@ -72,10 +77,11 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g,
   geom_point()
 ```
 
-## Matriz de correlación
+## Matriz de correlación {#sec-correlacion}
 
 Con `PerformanceAnalytics` podemos ver la correlación entre todas las variables
-cuantitativas de los pingüinos:
+cuantitativas de los pingüinos (la @sec-dispersion muestra una de esas
+relaciones en concreto):
 
 ```{r}
 #| fig.width: 8
@@ -87,5 +93,32 @@ penguins_num <- penguins |>
 chart.Correlation(penguins_num, histogram = TRUE)
 ```
 
+## Imágenes {#sec-imagenes}
+
+También puedes incluir una imagen desde un archivo y citarla por número con una
+etiqueta `#fig-`:
+
+![Logo del seminario Random Beers](../logo.jpg){#fig-logo width=200px}
+
+La @fig-logo se puede referenciar desde cualquier parte del documento.
+
+## Tablas {#sec-tablas}
+
+De forma similar, las tablas se etiquetan con `#tbl-` y se citan por número:
+
+```{r}
+#| label: tbl-resumen
+#| tbl-cap: "Número de pingüinos por especie"
+penguins |>
+  count(species) |>
+  knitr::kable(col.names = c("Especie", "N"))
+```
+
+La @tbl-resumen resume el número de ejemplares por especie. Junto con la
+@fig-logo, ilustran cómo referenciar imágenes y tablas en el texto.
+
 Cuando los datos cambien, basta con volver a renderizar: el documento se
 regenera completo, figuras incluidas.
+
+Para una introducción más extensa a la estadística con R, puedes consultar
+@arriaza2008estadistica.

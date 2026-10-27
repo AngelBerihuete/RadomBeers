@@ -6,6 +6,8 @@ format:
   html:
     toc: true
     theme: cosmo
+  # typst: default
+  # docx: default
 lang: es
 ---
 

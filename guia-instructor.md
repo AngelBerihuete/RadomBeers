@@ -102,7 +102,7 @@ montados (la configuración de `webexercises` está en `_quarto.yml` e `include/
 - **Referencias cruzadas:** `#fig-`, `#tbl-`, `#eq-` y citarlas con `@fig-...`.
 - **Tablas con título:** `tbl-cap` + `#tbl-` para citar tablas.
 - **Notas al pie:** `^[texto]`.
-- **Citas:** `bibliography: referencias.bib` y `@clave`.
+- **Citas:** `bibliography: references.bib` y `@clave`.
 - **webexercises:** `fitb()`, `mcq()`, `torf()`, `hide()/unhide()`.
 
 **Ejercicio:** añadir a su documento un callout de consejo y una referencia

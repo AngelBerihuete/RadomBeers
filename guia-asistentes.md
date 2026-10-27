@@ -172,6 +172,25 @@ La @fig-histograma muestra la distribución.
 
 Etiquetas: `#fig-`, `#tbl-`, `#eq-`; se citan con `@fig-`, `@tbl-`, `@eq-`.
 
+### Imágenes
+
+```markdown
+![Logo del seminario](../logo.jpg){#fig-logo width=200px}
+
+La @fig-logo ilustra el seminario.
+```
+
+### Referencias a secciones
+
+Añade `number-sections: true` al YAML, etiqueta el encabezado con `{#sec-...}`
+y cítalo con `@sec-...`:
+
+```markdown
+## Histograma {#sec-histograma}
+
+Véase la @sec-histograma.
+```
+
 ### Tablas con título
 
 ```markdown
@@ -199,7 +218,7 @@ El coeficiente de correlación^[Entre -1 y 1] mide la relación lineal.
 ### Citas bibliográficas
 
 ```yaml
-bibliography: referencias.bib
+bibliography: references.bib
 ```
 
 Citar con `@clave`; la bibliografía se genera sola.

@@ -6,7 +6,7 @@ format:
   html:
     toc: true
     theme: cosmo
-bibliography: ../referencias.bib
+bibliography: ../references.bib
 from: markdown+emoji
 lang: es
 ---
@@ -124,7 +124,7 @@ figuras, el número se actualiza solo.
 
 ## Citas bibliográficas
 
-Añade `bibliography: referencias.bib` al YAML y cita con `@clave`. Por ejemplo,
+Añade `bibliography: references.bib` al YAML y cita con `@clave`. Por ejemplo,
 [@montgomery2012] trata la regresión lineal, y el concepto de datos ordenados
 se describe en [@wickham2014].
 

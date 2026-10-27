@@ -52,7 +52,7 @@ outline-sesion.txt               → resumen de las sesiones (para enviar por co
 logo.jpg                         → logo del seminario
 guia-instructor.md/.pdf          → guion cronometrado para los ponentes
 guia-asistentes.md/.pdf          → chuleta para los asistentes
-referencias.bib                  → bibliografía de ejemplo
+references.bib                   → bibliografía de ejemplo
 include/                         → ficheros css/js de webexercises
 _extensions/                     → extensión roughnotation (revealjs)
 presentacion/                    → presentaciones revealjs del seminario

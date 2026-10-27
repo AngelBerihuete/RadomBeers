@@ -138,7 +138,7 @@ barplot(table(iris$Species),
 ## Citas bibliográficas
 
 ```yaml
-bibliography: referencias.bib
+bibliography: references.bib
 ```
 
 Citar con `@clave`:
