@@ -21,7 +21,7 @@ La media del largo del pétalo es `r mean(iris$Petal.Length)` y la desviación
 típica `r sd(iris$Petal.Length)`.
 
 Se escribe igual que en un documento, con la letra `r` seguida de una
-expresión R entre acentos graves.
+expresión R entre acentos graves ` `` `.
 
 ## Figuras dentro de la diapositiva
 
@@ -34,7 +34,7 @@ hist(faithful$waiting, col = "skyblue",
 
 Con `echo: false` solo se ve la figura:
 
-```{r, echo = FALSE, fig.width = 8, fig.height = 4.5}
+```{r, echo = TRUE, fig.width = 8, fig.height = 4.5}
 boxplot(Petal.Length ~ Species, data = iris,
         col = c("tomato", "gold", "steelblue"),
         main = "Pétalo por especie")

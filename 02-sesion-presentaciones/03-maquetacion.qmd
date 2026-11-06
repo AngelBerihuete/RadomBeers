@@ -4,10 +4,11 @@ author: "Raúl Páez"
 date: last-modified
 format:
   revealjs:
-    theme: simple  # Otros: beige, dark, sky, league...
+    theme: sky  # Otros: beige, dark, sky, league...
     transition: slide          # valores: none, fade, convex, concave, zoom
-    background-transition: fade # valores: none, fade, convex, concave, zoom
+    background-transition: convex # valores: none, fade, convex, concave, zoom
     fontsize: 30px # Tamaño de fuente base para todas las diapositivas
+    # css: estilo-moderno.css
 lang: es
 ---
 
@@ -52,24 +53,36 @@ separado:
 
 También se activa para todo el documento con `incremental: true` en el YAML.
 
-## Dos columnas
+## Dos columnas en fragmentos
 
 ::: {.columns}
+
 ::: {.column width="50%"}
+::: {.fragment data-fragment-index="1"}
 **Texto**
-- La media de `Petal.Length` es `r mean(iris$Petal.Length)`.
-- La desviación típica es `r sd(iris$Petal.Length)`.
-- Los datos provienen de `iris`.
+
+- Media: `r mean(iris$Petal.Length)`
+- Desv. típica: `r sd(iris$Petal.Length)`
+:::
+
+::: {.fragment data-fragment-index="3"}
+```{r echo=TRUE}
+mean(iris$Petal.Length)
+sd(iris$Petal.Length)
+```
+:::
 :::
 
 ::: {.column width="50%"}
-```{r, echo = FALSE, fig.width = 5, fig.height = 4}
-boxplot(Petal.Length ~ Species,
-        data = iris,
-        col = c("tomato", "gold", "steelblue"),
-        main = "Pétalo por especie")
+::: {.fragment data-fragment-index="2"}
+
+```{r echo=FALSE, fig.width=5, fig.height=4}
+boxplot(Petal.Length ~ Species, data = iris,
+        col = c("tomato", "gold", "steelblue"))
 ```
 :::
+:::
+
 :::
 
 ## Con código oculto
@@ -85,10 +98,15 @@ plot(cars, pch = 19, col = "steelblue",
 
 El código que genera la figura sí se muestra:
 
-```{r, echo = TRUE, fig.width = 8, fig.height = 4}
+```{r}
+#| echo: TRUE
+#| fig.width: 8
+#| fig.height: 4
+#| output-location: slide
 plot(cars, pch = 19, col = "steelblue",
      main = "Distancia de frenado según velocidad")
 ```
+
 ## Transiciones
 
 ```yaml
@@ -120,11 +138,15 @@ En esta diapositiva se muestra [texto en color rojo]{style="color: red;"}, en [c
 \
 Se puede referenciar cualquier color como en CSS: por nombre (`red`), código hexadecimal (`#008000`) o RGB (`rgb(0, 0, 255)`).
 
-## Tamaño del texto
+## Tamaño del texto {.smaller}
 
 - Toda la presentación: `fontsize: 30px` (en el yaml)
 - Una diapositiva: `{.small}` (junto al título de la diapositiva)
-- Una parte del texto: `{style="font-size: 0.7em;"}` (seleccionando el texto con [ ])
+- [Una parte del texto:]{style="font-size: 0.7em;"} (seleccionando el texto con [ ])
+
+```{r}
+summary(iris)
+```
 
 ## Personalizar el tema
 
@@ -135,10 +157,27 @@ El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
 format:
   revealjs:
     theme: simple
-    css: estilos-moderno.css
+    css: estilos-personalizados.css
 ```
 
-Pruébalo en `03-maquetacion-css.qmd`, que ya enlaza esa hoja de estilos.
+
+## Hoja de estilos CSS {.fondo-degradado}
+
+La hoja `estilos-personalizados.css` está enlazada desde la cabecera YAML.
+Esta diapositiva tiene un fondo degradado aplicado desde esa hoja:
+
+```yaml
+format:
+  revealjs:
+    css: estilos-personalizados.css
+```
+
+::: {.demo-css .fragment .fade-right}
+Este bloque tiene estilos definidos en el archivo CSS.
+:::
+
+Cambia los colores o el borde en el archivo CSS y vuelve a renderizar para ver
+el efecto.
 
 ## Para llevar
 

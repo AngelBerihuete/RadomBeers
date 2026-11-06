@@ -5,6 +5,17 @@ date: last-modified
 format:
   revealjs:
     theme: simple
+    output-file: 01-presentacion.html
+  # beamer:
+  #   theme: Madrid
+  #   output-file: 01-beamer.pdf
+  # html: # Sobrescribe el html creado por revealjs
+  #   toc: true
+  #   output-file: 01-web.html
+  # pdf:
+  #   toc: true
+  #   number-sections: true
+  #   output-file: 01-documento.pdf
 lang: es
 ---
 

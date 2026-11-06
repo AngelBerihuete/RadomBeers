@@ -9,7 +9,7 @@ format:
     chalkboard: true # Incompatible con embed-resources: true
     menu: true
     zoom: true
-
+    
     fontsize: 30px
     theme: simple
     # embed-resources: true

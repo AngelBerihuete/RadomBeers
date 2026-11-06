@@ -218,9 +218,9 @@
 .reveal .demo-css {
   margin: 1em auto;
   padding: 0.8em 1em;
-  border: 1px solid #d5d0ff;
+  border: 3px solid #d5d0ff;
   border-left: 0.18em solid var(--moderno-acento);
-  border-radius: 0.65em;
+  border-radius: 0.15em;
   background: linear-gradient(110deg, #f0efff, var(--moderno-superficie));
   box-shadow: var(--moderno-sombra);
   color: var(--moderno-texto);

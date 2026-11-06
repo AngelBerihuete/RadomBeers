@@ -132,86 +132,73 @@ dudas individuales.
 
 # Sesión 2 — Generación de presentaciones (90 min)
 
-Dinámica: los asistentes reciben los `.qmd` de `02-sesion-presentaciones/`, los
-modifican siguiendo cada bloque ("cambia esto, renderiza y observa") y pueden
-volver al original si algo se rompe. El orden coincide con la presentación
-`sesion2-presentaciones.qmd`.
-
-### 0–8 min: Repaso y verificación
+### 0–10 min: Repaso y verificación
 
 - Recapitula la sesión 1 (formato Quarto, chunks, render).
 - Objetivo: "al terminar, cada uno tendrá una presentación revealjs con
   fragmentos, figuras de R y notas del orador".
-- Pide que abran `01-revealjs-basico.qmd` y comprueben que renderiza.
 
-### 8–23 min: Primeras diapositivas — `01-revealjs-basico.qmd`
+### 10–25 min: Primeras diapositivas — `01-revealjs-basico.qmd`
+
+**Qué hacer:** abrir `01-revealjs-basico.qmd` y pedir que cambien el `format`
+de su documento a `revealjs` y lo rendericen.
 
 **Qué explicar:** con `format: revealjs` cada `##` es una diapositiva; el YAML
-controla el tema; navegación con flechas, `Esc` para el índice y **F** para
-pantalla completa.
+controla el tema; navegación con flechas y `Esc` para el índice.
 
-**Ejercicio:** cambiar el `theme` y añadir una diapositiva con una lista.
+**Ejercicio:** crear portada, "objetivos" y una diapositiva con una lista.
 
-**Comprobar:** que cambia el tema y la nueva diapositiva se ve bien.
+**Comprobar:** que aparece la presentación a pantalla completa.
 
-### 23–35 min: R en las diapositivas — `02-r-diapositivas.qmd`
+### 25–40 min: Maquetación — `02-maquetacion.qmd`
+
+**Qué hacer:** abrir `02-maquetacion.qmd`.
+
+**Qué explicar:** **fragmentos** (`::: {.fragment}`) y **columnas**
+(`::: {.columns}` / `::: {.column width="50%"}`); fondos de color con
+`{background-color="#..."}`.
+
+**Ejercicio:** convertir la diapositiva de objetivos en fragmentos y añadir un
+gráfico de `iris` en una columna.
+
+**Comprobar:** que los elementos aparecen paso a paso.
+
+### 40–55 min: R en las diapositivas — `03-r-diapositivas.qmd`
+
+**Qué hacer:** abrir `03-r-diapositivas.qmd`.
 
 **Qué explicar:** los chunks `{r}` se ejecutan al renderizar; el código en línea
 inserta resultados; `echo: false` muestra solo la figura.
 
-**Ejercicio:** cambiar la variable del gráfico, probar `echo: false` y añadir un
-resultado en línea.
+**Ejercicio:** añadir una figura con `echo: false` y un resultado en línea.
 
 **Comprobar:** que la diapositiva queda limpia (solo figura/resultado).
 
-### 35–52 min: Maquetación y estilos — `03-maquetacion.qmd` y `03-maquetacion-css.qmd`
+### 55–70 min: Plugins de revealjs — `04-plugins-revealjs.qmd`
 
-**Qué explicar:** **fragmentos** (`::: {.fragment}`), contrastados con listas
-`{.incremental}` (envuelven toda la lista), y **columnas**
-(`::: {.columns}` / `::: {.column width="50%"}`); `transition` /
-`background-transition`; fondos de color con `{background-color="#..."}` y color de texto con
-`style=`. Después, `03-maquetacion-css.qmd`: la hoja
-`estilos-personalizados.css` se enlaza con `css:` en el YAML y contiene un
-fondo degradado y un bloque personalizado.
+**Qué hacer:** abrir `04-plugins-revealjs.qmd`.
 
-**Ejercicio:** convertir la diapositiva de objetivos en fragmentos, cambiar la
-`transition` y el color de fondo de una diapositiva; en la versión CSS, cambiar
-los colores del degradado y volver a renderizar.
+**Qué explicar:** `chalkboard` (pizarra, tecla **B**), `menu` (menú lateral),
+`zoom` (**Alt** + clic), `slide-number`; **notas del orador** con `::: {.notes}`
+y vista del presentador (**S**); **roughnotation** (`filters: - roughnotation`
+y `[texto]{.rn-fragment rn-type=circle rn-color=red}`); personalización con
+`theme` y `css`.
 
-**Comprobar:** que los elementos aparecen paso a paso y que el cambio en el CSS
-se refleja tras renderizar.
+**Ejercicio:** activar `chalkboard`, añadir una nota del orador y marcar una
+palabra con roughnotation.
 
-### 52–67 min: Plugins de revealjs — `04-plugins-revealjs.qmd`
+**Comprobar:** que la pizarra, las notas y la anotación funcionan.
 
-**Qué explicar:** `controls` (flechas laterales), `chalkboard` (pizarra, tecla
-**B**), `menu` (menú lateral), `zoom` (**Alt** + clic), `slide-number`;
-**notas del orador** con `::: {.notes}` y vista del presentador (**S**);
-**roughnotation** (`filters: - roughnotation` y
-`[texto]{.rn-fragment rn-type=circle rn-color=red}`); `embed-resources: true`
-(un único HTML autocontenido, útil para proyectar sin conexión, pero
-incompatible con `chalkboard`); exportar a PDF abriendo el HTML con
-`?print-pdf` en la URL e imprimiendo desde el navegador.
-
-**Ejercicio:** poner `controls: false` y volver a `true`, probar la pizarra
-(tecla **B**), añadir una nota del orador y marcar una palabra con
-roughnotation.
-
-**Comprobar:** que las flechas, la pizarra, las notas y la anotación
-funcionan.
-
-### 67–87 min: Ejercicio (20 min)
+### 70–90 min: Ejercicio + cierre
 
 **Ejercicio:** construir una presentación de un tema de estadística:
 1. Crear un `.qmd` con `format: revealjs`.
 2. Añadir portada, objetivos (fragmentos) y un gráfico de R.
 3. Añadir notas del orador y activar `chalkboard`.
-4. Opcional: aplicar un CSS propio y marcar una idea con roughnotation.
-5. Comparar con `ejercicio/presentacion-tema.qmd`.
+4. Comparar con `ejercicio/presentacion-tema.qmd`.
 
-### 87–90 min: Cierre
-
-Puesta en común, recordar la chuleta (`guia-asistentes.md`) y los materiales
-del repositorio.
+**Cierre:** puesta en común, recordar la chuleta (`guia-asistentes.md`) y los
+materiales del repositorio.
 
 ---
 
@@ -225,7 +212,6 @@ del repositorio.
 | El PDF da error de LaTeX | Es opcional; `quarto install tinytex` (necesita internet). |
 | Los fragmentos no aparecen | Revisar `::: {.fragment}` con indentación de dos espacios. |
 | La pizarra no se abre | Verificar `chalkboard: true` en el YAML y re-renderizar. |
-| Error "not compatible with self-contained output" | `embed-resources: true` no admite `chalkboard`; desactiva uno de los dos. |
 | El idioma de la salida está en inglés | Añadir `lang: es` al YAML. |
 
 ## Lista de verificación final (antes de cada sesión)
