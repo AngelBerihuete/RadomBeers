@@ -2,8 +2,9 @@
 title: "Mi primera presentación"
 author: "Raúl Páez"
 date: last-modified
-format: revealjs
-theme: simple
+format:
+  revealjs:
+    theme: simple
 lang: es
 ---
 
@@ -30,6 +31,8 @@ head(faithful)
 
 ## Resumen
 
+::: {.incremental}
 - Un histograma agrupa los datos en intervalos.
 - La forma nos informa de la asimetría y de la variabilidad.
 - Quarto genera la diapositiva completa con un solo *Render*.
+:::

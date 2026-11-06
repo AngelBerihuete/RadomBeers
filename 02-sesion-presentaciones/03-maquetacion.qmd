@@ -1,0 +1,143 @@
+---
+title: "Maquetación de diapositivas"
+author: "Raúl Páez"
+date: last-modified
+format:
+  revealjs:
+    theme: simple
+    transition: slide          # prueba: none, fade, convex, concave, zoom
+    background-transition: fade
+lang: es
+---
+
+## Objetivos
+
+::: {.fragment}
+1. Conocer los fragmentos.
+:::
+
+::: {.fragment}
+2. Maquetar en dos columnas.
+:::
+
+::: {.fragment}
+3. Incluir figuras generadas por R.
+:::
+
+::: {.fragment}
+4. Dar formato con estilos CSS.
+:::
+
+## Fragmentos o lista incremental
+
+Con `{.fragment}` hay que envolver cada elemento (más control):
+
+::: {.fragment}
+- Primero esto…
+:::
+
+::: {.fragment}
+- …y después esto.
+:::
+
+Con `{.incremental}` basta envolver la lista y cada elemento aparece por
+separado:
+
+::: {.incremental}
+- Primer punto
+- Segundo punto
+- Tercer punto
+:::
+
+También se activa para todo el documento con `incremental: true` en el YAML.
+
+## Dos columnas
+
+::: {.columns}
+::: {.column width="50%"}
+**Texto**
+- La media de `Petal.Length` es `r mean(iris$Petal.Length)`.
+- La desviación típica es `r sd(iris$Petal.Length)`.
+- Los datos provienen de `iris`.
+:::
+
+::: {.column width="50%"}
+```{r, echo = FALSE, fig.width = 5, fig.height = 4}
+boxplot(Petal.Length ~ Species,
+        data = iris,
+        col = c("tomato", "gold", "steelblue"),
+        main = "Pétalo por especie")
+```
+:::
+:::
+
+## Con código oculto
+
+El código que genera la figura no se muestra, solo el resultado:
+
+```{r, echo = FALSE, fig.width = 8, fig.height = 4}
+plot(cars, pch = 19, col = "steelblue",
+     main = "Distancia de frenado según velocidad")
+```
+
+## Con código visible
+
+El código que genera la figura sí se muestra:
+
+```{r, echo = TRUE, fig.width = 8, fig.height = 4}
+plot(cars, pch = 19, col = "steelblue",
+     main = "Distancia de frenado según velocidad")
+```
+## Transiciones
+
+```yaml
+format:
+  revealjs:
+    transition: slide          # none, fade, slide, convex, concave, zoom
+    background-transition: fade
+```
+
+Cambia el valor, renderiza y comprueba el efecto al avanzar.
+
+## Fondo de color {background-color="#b1edc7"}
+
+Esta diapositiva usa un fondo personalizado con el atributo `background-color`.
+
+## Fondo de color oscuro {background-color="#0b2442"}
+
+Esta diapositiva usa un color oscuro y el texto se cambia a un color claro automáticamente.
+
+##  Color del texto
+
+En esta diapositiva se muestra [texto en color rojo]{style="color: red;"}, en [color verde]{style="color: #008000;"} y en [color azul]{style="color: rgb(0, 0, 255);"}.
+
+
+::: {style="text-align: center;"}
+`[`*texto*`]{style="color: ` *referencia del color*`;"}`
+:::
+
+\
+Se puede referenciar cualquier color como en CSS: por nombre (`red`), código hexadecimal (`#008000`) o RGB (`rgb(0, 0, 255)`).
+
+## Personalizar el tema
+
+El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
+`dark`). También puedes añadir una hoja de estilos propia con `css`:
+
+```yaml
+format:
+  revealjs:
+    theme: simple
+    css: estilos-personalizados.css
+```
+
+Pruébalo en `03-maquetacion-css.qmd`, que ya enlaza esa hoja de estilos.
+
+## Para llevar
+
+- Un `##` por diapositiva, como un índice de títulos.
+- `{.fragment}` revela contenido paso a paso.
+- `::: {.columns}` maqueta en columnas.
+- Los chunks `{r}` dibujan las figuras dentro de la diapositiva.
+- Se pueden usar estilos CSS para dar formato a las diapositivas y al texto.
+- El tema y los estilos se personalizan con `theme` y `css`.

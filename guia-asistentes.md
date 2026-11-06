@@ -274,6 +274,8 @@ Contenido derecha
 ## Título {background-color="#f7f7f7"}
 ```
 
+- **Texto en color**: `[texto]{style="color: red;"}`.
+
 - Un chunk `{r}` dentro de una diapositiva dibuja la figura ahí mismo.
 
 ### Plugins de revealjs
@@ -283,10 +285,19 @@ format:
   revealjs:
     theme: simple
     slide-number: true
+    controls: true     # flechas laterales
     chalkboard: true   # pizarra (tecla B)
     menu: true         # menú lateral
     zoom: true         # Alt + clic
+    css: estilos-personalizados.css   # hoja de estilos propia
+    transition: slide  # none, fade, slide, convex, concave, zoom
 ```
+
+- **Lista incremental**: `::: {.incremental}` alrededor de una lista.
+- **Pantalla completa**: tecla **F**.
+- **Un único HTML para compartir**: `embed-resources: true` (incompatible con `chalkboard`).
+- **Exportar a PDF**: abrir el HTML con `?print-pdf` en la URL e imprimir
+  desde el navegador.
 
 - **Notas del orador** (vista con la tecla **S**):
 

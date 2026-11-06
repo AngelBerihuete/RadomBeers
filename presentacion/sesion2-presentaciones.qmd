@@ -6,7 +6,14 @@ date: last-modified
 format:
   revealjs:
     theme: moon
-    logo: ../logo.jpg
+    logo: ../logo.jpg # Imagen miniatura de abajo a la derecha
+    slide-number: true
+    controls: true
+    transition: slide
+    # chalkboard: true # Incompatible con embed-resources: true
+    embed-resources: true
+filters:
+  - roughnotation
 lang: es
 ---
 
@@ -23,8 +30,8 @@ Viernes 6 de noviembre · 12:00–13:30 · Sala de reuniones
 ## Agenda (90 min)
 
 1. Primeras diapositivas
-2. Maquetación: fragmentos y columnas
-3. R dentro de las diapositivas
+2. R dentro de las diapositivas
+3. Maquetación: fragmentos, columnas y estilos.
 4. Plugins de revealjs
 5. **Ejercicio:** una presentación de un tema de estadística
 
@@ -32,7 +39,7 @@ Viernes 6 de noviembre · 12:00–13:30 · Sala de reuniones
 
 - Un `.qmd` = YAML + Markdown + chunks.
 - `format: revealjs` genera diapositivas.
-- Render con `Ctrl+Shift+K`.
+- Render con `Ctrl+Shift+K` (o `Cmd+Shift+K` en macOS).
 
 ## Primeras diapositivas
 
@@ -44,7 +51,36 @@ theme: simple
 ---
 ```
 
-Cada `##` es una diapositiva. Navega con las flechas; `Esc` abre el índice.
+Cada `##` es una diapositiva.
+
+Navega con las flechas.
+
+`Esc` abre el índice.
+
+**F** activa la pantalla completa.
+
+\
+**Ver ejemplo:** `01-revealjs-basico.qmd`
+
+## R en las diapositivas
+
+- Chunks `{r}` se ejecutan al renderizar.
+- Código en línea para insertar resultados calculados.
+- `echo: false` muestra solo la figura.
+
+\
+**Ver ejemplo:** `02-r-diapositivas.qmd`
+
+## Maquetación
+
+- Fragmentos: contenido que aparece paso a paso.
+- Columnas: diseño en múltiples columnas.
+- Transiciones entre diapositivas.
+- Fondos y color de texto.
+- Temas y estilos: `theme` y `css`.
+
+\
+**Ver ejemplo:** `03-maquetacion.qmd`
 
 ## Fragmentos
 
@@ -58,6 +94,19 @@ Primero esto…
 …y después esto.
 :::
 
+## Listas incrementales
+
+`{.fragment}` envuelve cada elemento; `{.incremental}` basta con envolver la
+lista:
+
+::: {.incremental}
+- Primer punto
+- Segundo punto
+- Tercer punto
+:::
+
+También se activa para todo el documento con `incremental: true` en el YAML.
+
 ## Dos columnas
 
 ::: {.columns}
@@ -65,6 +114,13 @@ Primero esto…
 **Texto**
 - Media: `r mean(iris$Petal.Length)`
 - Desv. típica: `r sd(iris$Petal.Length)`
+\
+
+```{r, echo = TRUE}
+mean(iris$Petal.Length)
+sd(iris$Petal.Length)
+```
+
 :::
 
 ::: {.column width="50%"}
@@ -75,22 +131,82 @@ boxplot(Petal.Length ~ Species, data = iris,
 :::
 :::
 
-## R en las diapositivas
+## Dos columnas en fragmentos
 
-- Chunks `{r}` se ejecutan al renderizar.
-- Código en línea para insertar resultados calculados.
-- `echo: false` muestra solo la figura.
+::: {.columns}
+
+::: {.column width="50%"}
+::: {.fragment data-fragment-index="1"}
+**Texto**
+
+- Media: `r mean(iris$Petal.Length)`
+- Desv. típica: `r sd(iris$Petal.Length)`
+:::
+
+::: {.fragment data-fragment-index="3"}
+```{r echo=TRUE, results='hide'}
+mean(iris$Petal.Length)
+sd(iris$Petal.Length)
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment data-fragment-index="2"}
+
+```{r echo=FALSE, fig.width=5, fig.height=4}
+boxplot(Petal.Length ~ Species, data = iris,
+        col = c("tomato", "gold", "steelblue"))
+```
+:::
+:::
+:::
+
+## Transiciones
+
+```yaml
+format:
+  revealjs:
+    transition: slide          # none, fade, slide, convex, concave, zoom
+    background-transition: fade
+```
+
+Cambia el valor, renderiza y comprueba el efecto al avanzar.
+
+
+## Temas y estilos
+
+```yaml
+format:
+  revealjs:
+    theme: moon
+    css: estilos-personalizados.css
+```
+
+Temas: `simple`, `moon`, `serif`, `dark`…
+
+Cambia los colores del archivo `estilos-personalizados.css` y vuelve a
+renderizar.
+
+\
+**Ver ejemplo:** `03-maquetacion-css.qmd`
 
 ## Plugins de revealjs
 
 ```yaml
 format:
   revealjs:
-    slide-number: true
+    slide-number: true # número de diapositiva
+    controls: true     # flechas laterales
     chalkboard: true   # dibujar (tecla B)
     menu: true         # menú lateral
     zoom: true         # Alt + clic
 ```
+
+\
+\
+\
+**Ver ejemplo:** `04-plugins-revealjs.qmd`
 
 ## Notas del orador
 
@@ -102,16 +218,36 @@ Nota que solo ve el presentador.
 
 Abre la vista del presentador con la tecla **S**.
 
-## Temas y estilos
+## Anotaciones con roughnotation
+
+Se activa con `filters: - roughnotation` y se marca el texto:
+
+```markdown
+[Esta es la clave]{.rn-fragment rn-type=circle rn-color=red}
+```
+
+Avanza y verás dibujarse: [Esta es la clave]{.rn-fragment rn-type=circle
+rn-color=red}
+
+Tipos: `underline`, `box`, `circle`, `highlight`…
+
+
+## Un solo archivo para compartir
 
 ```yaml
 format:
   revealjs:
-    theme: moon
-    css: estilos.css
+    embed-resources: true
 ```
 
-Temas: `simple`, `moon`, `serif`, `dark`…
+Genera un único HTML autocontenido: se puede enviar o proyectar sin conexión.
+
+No es compatible con `chalkboard`.
+
+## Exportar a PDF
+
+Abre la presentación en el navegador añadiendo `?print-pdf` a la URL
+(`archivo.html?print-pdf`) y usa **Imprimir → Guardar como PDF**.
 
 ## Ejercicio
 
@@ -120,7 +256,8 @@ Construye una presentación de un tema de estadística:
 1. Crea un `.qmd` con `format: revealjs`.
 2. Añade portada, objetivos (fragmentos) y un gráfico de R.
 3. Añade notas del orador y activa `chalkboard`.
-4. Compara con `ejercicio/presentacion-tema.qmd`.
+4. Opcional: aplica un CSS propio y marca una idea con roughnotation.
+5. Compara con `ejercicio/presentacion-tema.qmd`.
 
 ## ¡Gracias!
 

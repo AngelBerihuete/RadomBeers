@@ -6,6 +6,7 @@ format:
   revealjs:
     theme: simple
     slide-number: true
+    controls: true
     chalkboard: true
     menu: true
     zoom: true
@@ -19,11 +20,18 @@ lang: es
 ```yaml
 format:
   revealjs:
-    slide-number: true
+    slide-number: true  # número de diapositiva
+    controls: true     # flechas laterales para avanzar y retroceder
     chalkboard: true   # pizarra para dibujar
     menu: true         # menú lateral
     zoom: true         # Alt + clic para zoom
 ```
+
+## Flechas de navegación (controls)
+
+La opción `controls: true` muestra flechas en los laterales de la presentación
+para avanzar y retroceder. También puedes navegar con las flechas del teclado.
+Para ocultarlas, cambia el valor a `false`.
 
 ## Pizarra (chalkboard)
 
@@ -75,21 +83,30 @@ clave]{.rn-fragment rn-type=circle rn-color=red}
 Tipos disponibles: `underline`, `box`, `circle`, `highlight`,
 `strike-through`, `crossed-off`, `bracket`.
 
-## Personalizar el tema
-
-El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
-`dark`). También puedes añadir una hoja de estilos propia con `css`:
+## Un solo archivo para compartir
 
 ```yaml
 format:
   revealjs:
-    theme: simple
-    css: estilos.css
+    embed-resources: true
 ```
+
+Genera un único HTML autocontenido: se puede enviar o proyectar sin conexión.
+
+::: {.callout-warning}
+No es compatible con `chalkboard`: por eso no está activado en este archivo.
+Para probarlo, desactiva `chalkboard` en el YAML.
+:::
+
+## Exportar a PDF
+
+Abre la presentación en el navegador añadiendo `?print-pdf` a la URL
+(`archivo.html?print-pdf`) y usa **Imprimir → Guardar como PDF**.
 
 ## Para llevar
 
-- `chalkboard`, `menu`, `zoom` se activan en el YAML.
+- `controls`, `chalkboard`, `menu`, `zoom` se activan en el YAML.
 - Las **notas del orador** van en `::: {.notes}` y se ven con **S**.
 - **roughnotation** (filtro) anota texto con `.rn-fragment`.
-- El tema y los estilos se personalizan con `theme` y `css`.
+- `embed-resources: true` genera un único HTML para compartir.
+- Para exportar a PDF, abre el HTML con `?print-pdf` en la URL.
