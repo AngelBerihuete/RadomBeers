@@ -13,9 +13,9 @@ documentos y presentaciones con **Quarto** desde **RStudio**.
 **Lugar:** Sala de reuniones del Departamento de Estadística e Investigación
 Operativa.
 
-Los materiales son documentos progresivos: cada archivo parte del anterior y
-añade un concepto nuevo. Los asistentes trabajan continuamente mientras el
-ponente introduce los conceptos.
+Los ejemplos están ordenados por sesión y tema. En la sesión 2, los asistentes
+abren y modifican los `.qmd` correspondientes a cada bloque, y renderizan para
+observar los cambios.
 
 ## Requisitos previos
 
@@ -60,7 +60,12 @@ presentacion/                    → presentaciones revealjs del seminario
    sesion2-presentaciones.qmd    →   sesión 2 (Raúl)
 01-sesion-documentos/            → sesión 1 (documentos), de menor a mayor complejidad
    ejercicio/                    →   apuntes-beamer.tex (ejercicio) + apuntes-quarto.qmd (solución)
-02-sesion-presentaciones/        → sesión 2 (revealjs), de menor a mayor complejidad
+02-sesion-presentaciones/        → sesión 2 (revealjs)
+   01-revealjs-basico.qmd        →   primeras diapositivas
+   02-r-diapositivas.qmd         →   código y resultados de R
+   03-maquetacion.qmd            →   fragmentos, columnas y estilos
+   03-maquetacion-css.qmd        →   variante para explorar CSS
+   04-plugins-revealjs.qmd       →   plugins y opciones de revealjs
    ejercicio/                    →   presentacion-tema.qmd
 ```
 
@@ -72,10 +77,11 @@ presentacion/                    → presentaciones revealjs del seminario
 3. Los archivos de `01-sesion-documentos/` renderizan a **HTML**. Los de
    `02-sesion-presentaciones/` y `presentacion/` renderizan a **revealjs**.
 
-> **Sobre el formato PDF:** durante el seminario se usa **HTML** para no
-> depender de la instalación de LaTeX en cada portátil. La salida a **PDF** es
-> opcional: se explica en `03-formatos-salida.qmd` como ampliación y solo
-> requiere añadir `pdf: default` al YAML y tener TinyTeX (`quarto install tinytex`).
+> **Sobre el formato PDF:** para los documentos de la sesión 1 se usa **HTML**
+> y el PDF es opcional: se explica en `01-sesion-documentos/03-formatos-salida.qmd`
+> y requiere LaTeX (`quarto install tinytex`). Las presentaciones revealjs se
+> pueden imprimir a PDF desde el navegador con `?print-pdf`, como se muestra en
+> el ejemplo de plugins.
 
 ## Generar los PDF de las guías
 

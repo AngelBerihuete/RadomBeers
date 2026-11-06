@@ -2,11 +2,14 @@
 title: "¡Hola Quarto!"
 subtitle: "Sesión 1 · Documentos, apuntes y prácticas"
 author: "Ángel Berihuete"
-date: last-modified
+date: 2026-10-30
 format:
   revealjs:
     theme: moon
     logo: ../logo.jpg
+    slide-number: true
+    controls: true
+    transition: slide
 lang: es
 ---
 
@@ -18,15 +21,13 @@ Seminario **Random Beers** · Sesión 1
 
 **Generación de apuntes y prácticas** con Quarto desde RStudio
 
-Viernes 30 de octubre · 12:00–13:30 · Sala de reuniones
 
-## Agenda (90 min)
+## Agenda
 
 1. El formato Quarto y el primer render
 2. Compilación y formatos de salida
 3. Elementos importantes: código, figuras y referencias
 4. Plugins para apuntes (callouts, teoremas, anotaciones, webexercises)
-5. **Ejercicio (20 min):** de beamer a Quarto
 
 ## ¿Qué es Quarto?
 

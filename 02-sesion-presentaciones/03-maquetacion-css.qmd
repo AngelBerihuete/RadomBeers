@@ -6,7 +6,7 @@ format:
   revealjs:
     theme: simple
     slide-number: true
-    css: estilos-personalizados.css
+    css: estilos-moderno.css   # Prueba con: estilos-moderno.css
     transition: slide          # prueba: none, fade, convex, concave, zoom
     background-transition: fade
 lang: es
@@ -118,20 +118,21 @@ En esta diapositiva se muestra [texto en color rojo]{style="color: red;"}, en [c
 `[`*texto*`]{style="color: ` *referencia del color*`;"}`
 :::
 
+\
 Se puede referenciar cualquier color como en CSS: por nombre (`red`), código hexadecimal (`#008000`) o RGB (`rgb(0, 0, 255)`).
 
-## Hoja de estilos CSS {.fondo-degradado}
+## Hoja de estilos CSS {.portada}
 
-La hoja `estilos-personalizados.css` está enlazada desde la cabecera YAML.
-Esta diapositiva tiene un fondo degradado aplicado desde esa hoja:
+La hoja `estilos-moderno.css` está enlazada desde la cabecera YAML.
+Esta diapositiva usa los estilos de portada y el fondo degradado de esa hoja:
 
 ```yaml
 format:
   revealjs:
-    css: estilos-personalizados.css
+    css: estilos-moderno.css
 ```
 
-::: {.demo-css}
+::: {.demo-css .fragment .fade-right}
 Este bloque tiene estilos definidos en el archivo CSS.
 :::
 

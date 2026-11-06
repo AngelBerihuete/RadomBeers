@@ -4,9 +4,10 @@ author: "Raúl Páez"
 date: last-modified
 format:
   revealjs:
-    theme: simple
-    transition: slide          # prueba: none, fade, convex, concave, zoom
-    background-transition: fade
+    theme: simple  # Otros: beige, dark, sky, league...
+    transition: slide          # valores: none, fade, convex, concave, zoom
+    background-transition: fade # valores: none, fade, convex, concave, zoom
+    fontsize: 30px # Tamaño de fuente base para todas las diapositivas
 lang: es
 ---
 
@@ -119,6 +120,12 @@ En esta diapositiva se muestra [texto en color rojo]{style="color: red;"}, en [c
 \
 Se puede referenciar cualquier color como en CSS: por nombre (`red`), código hexadecimal (`#008000`) o RGB (`rgb(0, 0, 255)`).
 
+## Tamaño del texto
+
+- Toda la presentación: `fontsize: 30px` (en el yaml)
+- Una diapositiva: `{.small}` (junto al título de la diapositiva)
+- Una parte del texto: `{style="font-size: 0.7em;"}` (seleccionando el texto con [ ])
+
 ## Personalizar el tema
 
 El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
@@ -128,7 +135,7 @@ El aspecto se controla con `theme` (por ejemplo `simple`, `moon`, `serif`,
 format:
   revealjs:
     theme: simple
-    css: estilos-personalizados.css
+    css: estilos-moderno.css
 ```
 
 Pruébalo en `03-maquetacion-css.qmd`, que ya enlaza esa hoja de estilos.

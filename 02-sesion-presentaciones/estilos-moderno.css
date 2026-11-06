@@ -1,0 +1,228 @@
+:root {
+  --moderno-fondo: #f7f8fc;
+  --moderno-texto: #20243a;
+  --moderno-secundario: #5e647b;
+  --moderno-acento: #6558d3;
+  --moderno-acento-claro: #e9e7ff;
+  --moderno-superficie: #ffffff;
+  --moderno-borde: #e4e6f0;
+  --moderno-sombra: 0 1.2em 3em rgb(32 36 58 / 9%);
+}
+
+.reveal {
+  color: var(--moderno-texto);
+  font-family: "Aptos", "Segoe UI", sans-serif;
+  font-size: 30px;
+  background: var(--moderno-fondo);
+}
+
+.reveal .slides section {
+  box-sizing: border-box;
+  text-align: left;
+  padding: 0.35em 0.6em;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  color: var(--moderno-texto);
+  font-family: "Aptos Display", "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-transform: none;
+}
+
+.reveal h1 {
+  font-size: 2.45em;
+  line-height: 1.05;
+}
+
+.reveal h2 {
+  margin-bottom: 0.6em;
+  font-size: 1.65em;
+}
+
+.reveal h2::after {
+  display: block;
+  width: 1.7em;
+  height: 0.12em;
+  margin-top: 0.3em;
+  border-radius: 1em;
+  background: linear-gradient(90deg, var(--moderno-acento), #43c6ac);
+  content: "";
+}
+
+.reveal h3 {
+  font-size: 1.15em;
+}
+
+.reveal p,
+.reveal li {
+  color: var(--moderno-secundario);
+  line-height: 1.45;
+}
+
+.reveal strong {
+  color: var(--moderno-texto);
+}
+
+.reveal a {
+  color: var(--moderno-acento);
+  text-decoration-color: rgb(101 88 211 / 35%);
+  text-underline-offset: 0.15em;
+}
+
+.reveal a:hover {
+  color: #4437b5;
+}
+
+.reveal ul,
+.reveal ol {
+  margin-left: 1.1em;
+}
+
+.reveal li::marker {
+  color: var(--moderno-acento);
+}
+
+.reveal blockquote {
+  width: 88%;
+  padding: 0.7em 1em;
+  border-left: 0.18em solid var(--moderno-acento);
+  border-radius: 0 0.5em 0.5em 0;
+  background: var(--moderno-superficie);
+  box-shadow: var(--moderno-sombra);
+  color: var(--moderno-secundario);
+  font-style: normal;
+}
+
+.reveal .slides section pre.sourceCode {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #68708f;
+  border-radius: 0.65em;
+  background: #101426;
+  box-shadow: 0 1.2em 3em rgb(17 20 38 / 25%);
+  font-size: 0.62em;
+}
+
+.reveal .slides section pre.sourceCode > code.sourceCode {
+  background: transparent;
+  color: #f8f9ff;
+  font-size: inherit;
+}
+
+.reveal .slides section pre.sourceCode code .co {
+  color: #b7c0d8;
+}
+
+.reveal .slides section pre.sourceCode code .kw,
+.reveal .slides section pre.sourceCode code .cf {
+  color: #ff9fca;
+}
+
+.reveal .slides section pre.sourceCode code .st,
+.reveal .slides section pre.sourceCode code .at {
+  color: #a7f3c5;
+}
+
+.reveal .slides section pre.sourceCode code .dv,
+.reveal .slides section pre.sourceCode code .bn,
+.reveal .slides section pre.sourceCode code .fl {
+  color: #ffd479;
+}
+
+.reveal .slides section pre.sourceCode code .fu,
+.reveal .slides section pre.sourceCode code .bu {
+  color: #8edcff;
+}
+
+.reveal table {
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid var(--moderno-borde);
+  border-radius: 0.5em;
+  background: var(--moderno-superficie);
+  font-size: 0.72em;
+}
+
+.reveal th {
+  background: var(--moderno-acento-claro);
+  color: var(--moderno-texto);
+}
+
+.reveal th,
+.reveal td {
+  padding: 0.45em 0.65em;
+  border-color: var(--moderno-borde);
+}
+
+.reveal img,
+.reveal video {
+  border-radius: 0.55em;
+}
+
+.reveal .slide-number {
+  padding: 0.35em 0.65em;
+  border-radius: 2em;
+  background: var(--moderno-superficie);
+  color: var(--moderno-secundario);
+  font-size: 0.55em;
+}
+
+.reveal .progress {
+  height: 4px;
+  color: var(--moderno-acento);
+}
+
+.reveal .controls {
+  color: var(--moderno-acento);
+}
+
+.reveal .slides section.portada {
+  display: flex;
+  min-height: 13em;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.2em;
+  border-radius: 0.8em;
+  background:
+    radial-gradient(ellipse at 85% 20%, rgb(101 88 211 / 15%), transparent 35%),
+    linear-gradient(135deg, #fff 0%, #f0efff 100%);
+  box-shadow: var(--moderno-sombra);
+}
+
+.reveal .slides section.portada h1,
+.reveal .slides section.portada h2 {
+  max-width: 13em;
+}
+
+.reveal .slides section.portada h2::after {
+  display: none;
+}
+
+.reveal .tarjeta {
+  padding: 0.8em 1em;
+  border: 1px solid var(--moderno-borde);
+  border-radius: 0.65em;
+  background: var(--moderno-superficie);
+  box-shadow: var(--moderno-sombra);
+}
+
+.reveal .tarjeta > :last-child {
+  margin-bottom: 0;
+}
+
+.reveal .demo-css {
+  margin: 1em auto;
+  padding: 0.8em 1em;
+  border: 1px solid #d5d0ff;
+  border-left: 0.18em solid var(--moderno-acento);
+  border-radius: 0.65em;
+  background: linear-gradient(110deg, #f0efff, var(--moderno-superficie));
+  box-shadow: var(--moderno-sombra);
+  color: var(--moderno-texto);
+  line-height: 1.45;
+}

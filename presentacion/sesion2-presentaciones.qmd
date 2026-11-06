@@ -2,7 +2,7 @@
 title: "¡Hola Quarto!"
 subtitle: "Sesión 2 · Presentaciones con revealjs"
 author: "Raúl Páez"
-date: last-modified
+date: 2026-11-06
 format:
   revealjs:
     theme: moon
@@ -10,8 +10,6 @@ format:
     slide-number: true
     controls: true
     transition: slide
-    # chalkboard: true # Incompatible con embed-resources: true
-    embed-resources: true
 filters:
   - roughnotation
 lang: es
@@ -25,21 +23,21 @@ Seminario **Random Beers** · Sesión 2
 
 **Generación de presentaciones** con revealjs
 
-Viernes 6 de noviembre · 12:00–13:30 · Sala de reuniones
 
-## Agenda (90 min)
+## Agenda
 
 1. Primeras diapositivas
 2. R dentro de las diapositivas
 3. Maquetación: fragmentos, columnas y estilos.
 4. Plugins de revealjs
-5. **Ejercicio:** una presentación de un tema de estadística
+
 
 ## Repaso rápido
 
 - Un `.qmd` = YAML + Markdown + chunks.
 - `format: revealjs` genera diapositivas.
 - Render con `Ctrl+Shift+K` (o `Cmd+Shift+K` en macOS).
+
 
 ## Primeras diapositivas
 
@@ -180,16 +178,15 @@ Cambia el valor, renderiza y comprueba el efecto al avanzar.
 format:
   revealjs:
     theme: moon
-    css: estilos-personalizados.css
+    css: estilos-moderno.css
 ```
 
 Temas: `simple`, `moon`, `serif`, `dark`…
 
-Cambia los colores del archivo `estilos-personalizados.css` y vuelve a
+\
+Define en la cabecera `css: estilos-moderno.css` y vuelve a
 renderizar.
 
-\
-**Ver ejemplo:** `03-maquetacion-css.qmd`
 
 ## Plugins de revealjs
 
@@ -208,16 +205,6 @@ format:
 \
 **Ver ejemplo:** `04-plugins-revealjs.qmd`
 
-## Notas del orador
-
-```markdown
-::: {.notes}
-Nota que solo ve el presentador.
-:::
-```
-
-Abre la vista del presentador con la tecla **S**.
-
 ## Anotaciones con roughnotation
 
 Se activa con `filters: - roughnotation` y se marca el texto:
@@ -229,7 +216,18 @@ Se activa con `filters: - roughnotation` y se marca el texto:
 Avanza y verás dibujarse: [Esta es la clave]{.rn-fragment rn-type=circle
 rn-color=red}
 
-Tipos: `underline`, `box`, `circle`, `highlight`…
+[Tipos:]{.rn-fragment rn-type=highlight rn-color=yellow} `underline`, `box`, `circle`, `highlight`…
+
+
+## Notas del orador
+
+```markdown
+::: {.notes}
+Nota que solo ve el presentador.
+:::
+```
+
+Abre la vista del presentador con la tecla **S**.
 
 
 ## Un solo archivo para compartir

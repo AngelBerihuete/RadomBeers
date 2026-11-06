@@ -4,12 +4,15 @@ author: "Raúl Páez"
 date: last-modified
 format:
   revealjs:
-    theme: simple
     slide-number: true
     controls: true
-    chalkboard: true
+    chalkboard: true # Incompatible con embed-resources: true
     menu: true
     zoom: true
+
+    fontsize: 30px
+    theme: simple
+    # embed-resources: true
 filters:
   - roughnotation
 lang: es
@@ -21,16 +24,23 @@ lang: es
 format:
   revealjs:
     slide-number: true  # número de diapositiva
-    controls: true     # flechas laterales para avanzar y retroceder
-    chalkboard: true   # pizarra para dibujar
-    menu: true         # menú lateral
-    zoom: true         # Alt + clic para zoom
+    controls: true      # flechas laterales para avanzar y retroceder
+    chalkboard: true    # pizarra para dibujar
+    menu: true          # menú lateral
+    zoom: true          # Alt + clic para zoom
 ```
+
+## Número de diapositiva (slide-number)
+
+La opción `slide-number: true`muestra el número de diapositiva en el esquina inferior derecha
+
+Para ocultarlas, cambia el valor a `false`.
 
 ## Flechas de navegación (controls)
 
 La opción `controls: true` muestra flechas en los laterales de la presentación
 para avanzar y retroceder. También puedes navegar con las flechas del teclado.
+
 Para ocultarlas, cambia el valor a `false`.
 
 ## Pizarra (chalkboard)
@@ -49,17 +59,6 @@ Para ocultarlas, cambia el valor a `false`.
 
 - Mantén **Alt** y haz clic en cualquier zona para ampliarla.
 - Vuelve a hacer clic para reducir.
-
-## Notas del orador
-
-Las notas se escriben con un bloque `::: {.notes}`:
-
-::: {.notes}
-Esta nota no se ve en la proyección normal. Se muestra en la vista del
-presentador (pulsa **S** para abrir la ventana de notas).
-:::
-
-Para verlas, abre la vista del presentador con la tecla **S**.
 
 ## Anotaciones roughnotation
 
@@ -82,6 +81,20 @@ clave]{.rn-fragment rn-type=circle rn-color=red}
 
 Tipos disponibles: `underline`, `box`, `circle`, `highlight`,
 `strike-through`, `crossed-off`, `bracket`.
+
+\
+[***Instalación:***]{.rn-fragment rn-type=highlight rn-color=yellow} `quarto add EmilHvitfeldt/quarto-roughnotation`
+
+## Notas del orador
+
+Las notas se escriben con un bloque `::: {.notes}`:
+
+::: {.notes}
+Esta nota no se ve en la proyección normal. Se muestra en la vista del
+presentador (pulsa **S** para abrir la ventana de notas).
+:::
+
+Para verlas, abre la vista del presentador con la tecla **S**.
 
 ## Un solo archivo para compartir
 
